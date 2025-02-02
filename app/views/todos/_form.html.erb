@@ -1,0 +1,17 @@
+<%= form_with model: todo do |form| %>
+   
+   <div class="form_row">
+     <%= form.label :title %>
+     <%= form.text_field :title %>
+   </div>
+ 
+   <div>
+     <%= form.label :task_id %>
+     <%= form.text_field :task_id, value:@task_id, readonly: true %>
+   </div>
+ 
+   <div>
+     <%= form.submit %>
+   </div>
+ <% end %>
+ 

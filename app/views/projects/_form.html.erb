@@ -1,0 +1,23 @@
+<%= form_with model: project do |form| %>
+
+   <div class="form_row">
+     <%= form.label :title %>
+     <%= form.text_field :title %>
+   </div>
+
+   <div class="form_row">
+      <%= form.label :desc %>
+      <div><%= form.rich_text_area :desc %></div>
+   </div>
+   
+   <div class="form_row">
+     <%= form.label :programme_id %>
+     <%= form.text_field :programme_id, value:@programme_id, readonly: true %>
+   </div>
+   
+
+   <div>
+     <%= form.submit %>
+   </div>
+ <% end %>
+ 

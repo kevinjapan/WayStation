@@ -1,0 +1,17 @@
+<h1>Projects</h1>
+
+<%= link_to "New project", new_project_path if authenticated? %>
+
+<section>
+
+   <% @projects.each do |project| %>
+
+      <div>
+         <a href="/projects/<%= project.id %>">
+            <%= link_to project.title, project %>
+         </a>
+      </div>
+
+   <% end %>
+
+</section>
