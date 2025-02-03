@@ -3,42 +3,66 @@
    <section class="artifact_bar">
       <div>
          <%= link_to project_path(@project), class: "p_0.25 m_0 no_decor inline_block hover_highlight" do %>
-            <h4><span class="grey_text">Project</span> <%= @project.title %></h4>
+            <h4><span class="light_grey_text">Project</span> <%= @project.title %></h4>
          <% end %>
-         <h1><!--span class="grey_text">Task</span--> <%= @task.title %></h1>
-         <!--h3><span class="grey_text">id</span> <%= @task.id %></h3-->
+         <h1><!--span class="light_grey_text">Task</span--> <%= @task.title %></h1>
+         <!--h3><span class="light_grey_text">id</span> <%= @task.id %></h3-->
       </div>
       <%= link_to "New todo", new_todo_path(task_id:@task.id) , class: "action_link"  if authenticated? %>
    </section>
          
-   <p> <%= @task.desc%></p>
+   <div class="border px_1 mb_1 grey_text"> <p><%= @task.desc%></p></div>
 
 
 
    
    <section class="artifacts_list">
-      <h3>Todos</h3>
+      <h3 class="grey_text">Todos</h3>
       <ul>
          <% @todos.each do |todo| %>
-            <li><%= link_to todo.title, todo %></li>
+            <li class="">
+
+               <!-- to do : ongoing - improve - single form for all list (currently form per list item) -->
+              <!--<%= form_with do |form| %>
+                  <%= form.checkbox :done_at %>
+                  <%= form.label :done_at, todo.title %>
+                  <!--<%= link_to todo.title, todo %>
+               <% end %>-->
+
+               <%= form_with model: todo, class: "flex items_center" do |form| %>
+                  <!--div>
+                     <%= form.label :title %>
+                     <%= form.text_field :title %>
+                  </div-->
+                  <div>
+                  <!-- to do : if done_at filled, mark checkbox value as 1 -->
+                  <!-- to do : currently, all checkboxes on this page named todo[done_at] - need to distinguish? -->
+                     <%= form.checkbox :done_at %> 
+                     <%= form.label :done_at, todo.title %>
+                     <%= link_to todo.title, todo %>
+                     <%= todo.done_at %>
+                  </div>
+                  <!-- to do : style update button - or set update on the checkbox itself.. -->
+                  <%= form.submit class: 'inline_block' %>
+               <% end %>
+
+             
+            </li>
          <% end %>
+
+
       </ul>
+   </section>
+
+   <section class="flex">
+      <%= button_to "Delete", @task, method: :delete, class:"action_link" , data: { turbo_confirm: "Are you sure?" } %>
+      <%= link_to "Edit", edit_task_path, class: "action_link" if authenticated? %>
    </section>
 
    <section>
       <!-- alternative: <%= link_to "Back to parent project",  project_path(@project) %>-->
       <%= link_to "Back to parent project", @project %>
-
-      <!-- to do : be aware even if i remove links like this one, the route is still active and will resolve -
-                   so i need to either remove route | re-route it | or tidy the page.it routes to -->
-      <%= link_to "Back", tasks_path %>
-      
-      <%= link_to "Edit", edit_task_path(@task, project_id:@project.id) %>
-      
-   </section>
-
-   <section>
-      <%= button_to "Delete", @task, method: :delete, class:"action_link" , data: { turbo_confirm: "Are you sure?" } %>
+      <%= link_to "All Tasks", tasks_path %>
    </section>
 
 </section>

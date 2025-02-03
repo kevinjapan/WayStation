@@ -3,24 +3,23 @@
    <section class="artifact_bar">
       <div>
          <%= link_to task_path(@task), class: "p_0.25 m_0 no_decor inline_block hover_highlight" do %>
-            <h4><span class="grey_text">Task</span> <%= @task.title %></h4>
+            <h4><span class="light_grey_text">Task</span> <%= @task.title %></h4>
          <% end %>
-         <h1><span class="grey_text">Todo</span> <%= @todo.title %></h1>
-         <!--h3><span class="grey_text">id</span> <%= @todo.id %></h3-->
+         <h1><span class="light_grey_text">Todo</span> <%= @todo.title %></h1>
+         <!--h3><span class="light_grey_text">id</span> <%= @todo.id %></h3-->
+         <h3><span class="grey_text">done_at</span> <%= @todo.done_at %></h3>
       </div>
    </section>
 
-   <section>
-   
-      <%= link_to "Back to parent task",  task_path(@task) %>
-      <%= link_to "Back", todos_path %>
-      
-      <%= link_to "Edit", edit_todo_path(@todo, task_id:@task.id) %>
-
+   <section class="flex">        
+      <%= button_to "Delete", @todo, method: :delete, class:"action_link" , data: { turbo_confirm: "Are you sure?" } %>
+      <!--%= link_to "Edit", edit_todo_path(@todo, task_id:@task.id) %-->
+      <%= link_to "Edit", edit_todo_path, class: "action_link" if authenticated? %>    
    </section>
 
    <section>
-      <%= button_to "Delete", @todo, method: :delete, class:"action_link" , data: { turbo_confirm: "Are you sure?" } %>
+      <%= link_to "Back to parent task",  task_path(@task) %>
+      <%= link_to "All Todos", todos_path %>
    </section>
 
 </section>
