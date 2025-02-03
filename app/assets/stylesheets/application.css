@@ -95,7 +95,6 @@ section.artifact_bar {
    padding:.25rem .5rem;
    border:solid 1px lightgrey;
 }
-
 .action_link,
 button.action_link,
 input[type="submit"] {
@@ -137,3 +136,12 @@ h1,h2,h3,h4,h5,h6 {
 h1 {
    font-size:2rem;
 }
+
+.bg_yellow {background:yellow;}
+.m_0 {margin:0;}
+.p_0 {padding:0;}
+.p_0\.25 {padding:.25rem;}
+.no_decor {text-decoration:none;}
+
+.hover_highlight:hover {background:hsl(0, 0%,96%);}
+.inline_block {display:inline-block;}
