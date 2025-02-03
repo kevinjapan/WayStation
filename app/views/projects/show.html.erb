@@ -2,8 +2,10 @@
 
    <section class="artifact_bar">
       <div>
-         <h4><span class="grey_text">Programme</span> <%= @programme.title %></h4>
-         <h1><span class="grey_text">Project</span> <%= @project.title %></h1>
+         <%= link_to programme_path(@programme), class: "p_0.25 m_0 no_decor inline_block hover_highlight" do %>
+            <h4><span class="grey_text ">Programme</span> <%= @programme.title %></h4>
+         <% end %>
+         <h1><!--span class="grey_text">Project</span--> <%= @project.title %></h1>
          <!--h3><span class="grey_text">id</span> <%= @project.id %></h3-->
       </div>
       <%= link_to "New task", new_task_path(project_id:@project.id) , class: "action_link"  if authenticated? %>
@@ -11,11 +13,8 @@
    
    <p> <%= @project.desc%></p>
 
-
-
-   
    <section class="artifacts_list">
-      <h3>listing Tasks</h3>
+      <h3>Tasks</h3>
       <ul>
          <% @tasks.each do |task| %>
             <li><%= link_to task.title, task %></li>

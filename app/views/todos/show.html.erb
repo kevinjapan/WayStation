@@ -2,7 +2,9 @@
 
    <section class="artifact_bar">
       <div>
-         <h4><span class="grey_text">Task</span> <%= @task.title %></h4>
+         <%= link_to task_path(@task), class: "p_0.25 m_0 no_decor inline_block hover_highlight" do %>
+            <h4><span class="grey_text">Task</span> <%= @task.title %></h4>
+         <% end %>
          <h1><span class="grey_text">Todo</span> <%= @todo.title %></h1>
          <!--h3><span class="grey_text">id</span> <%= @todo.id %></h3-->
       </div>

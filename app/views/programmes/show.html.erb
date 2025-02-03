@@ -1,7 +1,12 @@
 <section>
 
    <section class="artifact_bar">
-      <h1><span class="grey_text">Programme</span> <%= @programme.title %></h1>
+      <div>
+         <%= link_to programmes_path, class: "p_0.25 m_0 no_decor inline_block hover_highlight" do %>
+            <h4><span class="grey_text">Programmes</span></h4>
+         <% end %>
+         <h1><span class="grey_text">Programme</span> <%= @programme.title %></h1>
+      </div>
       <%= link_to "New project", new_project_path(programme_id:@programme.id), class: "action_link"  if authenticated? %>
    </section>
       
