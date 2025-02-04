@@ -52,7 +52,7 @@ section img {
    color:grey;
 }
 .light_grey_text {
-   color:lightgrey;
+   color:hsl(0, 0%, 90%);
 }
 section .grey_text {
    font-weight:100;
@@ -90,6 +90,15 @@ ul {
    list-style:none;
 }
 
+.artefact_type {
+   width:fit-content;
+   margin:0;
+   padding:.15rem .25rem;
+   border:solid 1px lightgrey;
+   border-top:none;
+   border-left:none;
+   border-radius:0 0 .5rem 0;
+}
 /* title/navbar on artifact views */
 section.artifact_bar {
    display:flex;
@@ -125,7 +134,7 @@ input[type="submit"]:hover {
 form {
    visibility:visible;
    display:flex;
-   /* flex-direction:column;  to do : review - can't use this default since have to work w/ Rails injected forms. */
+   /* flex-direction:column; we can't use this default since have to work w/ Rails injected forms. */
    gap:1rem;
 }
 .form_row {
@@ -154,6 +163,32 @@ h1 {
    font-size:2rem;
 }
 
+/* generic card layout/outline */
+.card {
+   width:fit-content;
+   margin-bottom:.5rem;
+   padding:0;
+   border:solid 1px lightgrey;
+   border-radius:.5rem;
+   overflow:none;
+}
+.card_title_bar {
+   max-width:100%;
+   margin:0;
+   padding:.5rem;
+   height:fit-content;
+   font-style:italic;
+   font-weight:100;
+   color:hsl(0, 0%, 70%);
+   border-bottom:solid 1px lightgrey;
+}
+.card_content {
+   width:100%;
+   margin:.5rem 0;
+   padding:.5rem;
+}
+
+/* to do : tidy utility classes.. */
 .bg_yellow {background:yellow;}
 .m_0 {margin:0;}
 .m_1 {margin:1rem;}
