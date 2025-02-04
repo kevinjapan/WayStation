@@ -1,0 +1,31 @@
+
+
+
+<%= form_with model: comment, class: "flex_cols" do |form| %>
+
+<% if comment.errors.any? %>
+    <ul>
+    <% comment.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  <% end %>
+
+   <%= form.text_field :commentable_id, value: params["commentable_id"] %>
+   <%= form.text_field :commentable_type, value: params["commentable_type"].singularize.capitalize %> <!-- to do : capitalize not working? -->
+   
+   <div class="form_row">
+     <%= form.label :title %>
+     <%= form.text_field :title %>
+   </div>
+
+   <div class="form_row">
+      <%= form.label :content %>
+      <div><%= form.rich_text_area :content %></div>
+   </div>
+
+   <div>
+     <%= form.submit %>
+   </div>
+ <% end %>
+ 

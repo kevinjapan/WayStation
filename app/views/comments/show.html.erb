@@ -1,0 +1,16 @@
+<section>
+
+   <section class="artifact_bar">
+      <div>
+         <h3><!--span class="light_grey_text">Comment</span--> <%= @comment.title %></h3>
+         <p><%= @comment.content %></p>
+         <p><span class="light_grey_text">id</span> <%= @comment.commentable_id %></p>
+         <p><span class="light_grey_text">type</span> <%= @comment.commentable_type %></p>
+      </div>
+   </section>
+
+   <section>
+      <%= link_to @comment.commentable.title, polymorphic_path(@comment.commentable) %>
+   </section>
+
+</section>

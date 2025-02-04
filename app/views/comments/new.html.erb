@@ -1,0 +1,19 @@
+<h1>New comment</h1>
+
+<section>
+   <%= @comment.inspect %>
+</section>
+
+<section>
+   <%= render "form", comment: @comment %>
+</section>
+
+<section>
+   <!-- to do : we should return to 'commentable_type' path not hardcoded 'todo_path'-->
+   <!--%= link_to "Cancel", todo_path(@commentable_id), class:"action_link" %-->
+</section>
+
+
+<%=@comment.title%>
+<%=@commentable_id%>
+<%=@commentable_type%>
