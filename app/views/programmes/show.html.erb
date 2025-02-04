@@ -33,5 +33,9 @@
    <section>
       <%= link_to "All Programmes", programmes_path %>
    </section>
+
+   <section>
+      <%= link_to "New comment ", new_comment_path(), class: "action_link"  if authenticated? %>
+   </section>
    
 </section>

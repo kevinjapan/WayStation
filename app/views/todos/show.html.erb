@@ -2,10 +2,11 @@
 
    <section class="artifact_bar">
       <div>
+         <h3 class="artefact_type light_grey_text">TODO</h3>
          <%= link_to task_path(@task), class: "p_0.25 m_0 no_decor inline_block hover_highlight" do %>
-            <h4><span class="light_grey_text">Task</span> <%= @task.title %></h4>
+            <h4><span class="grey_text">Task</span> <%= @task.title %></h4>
          <% end %>
-         <h1><span class="light_grey_text">Todo</span> <%= @todo.title %></h1>
+         <h1><%= @todo.title %></h1>
          <!--h3><span class="light_grey_text">id</span> <%= @todo.id %></h3-->
          <h3><span class="grey_text">done_at</span> <%= @todo.done_at %></h3>
       </div>
@@ -21,5 +22,20 @@
       <%= link_to "Back to parent task",  task_path(@task) %>
       <%= link_to "All Todos", todos_path %>
    </section>
+
+   <ul>
+
+      <% @comments.each do |comment| %>
+         <!--li><%= link_to comment.title, comment %></li-->
+         <li class="card">
+            <div class="card_title_bar"><%=comment.title%></div>
+            <div class="card_content"><%= comment.content %></div>
+         </li>
+      <% end %>
+
+      
+      <%= link_to "New comment", new_comment_path(commentable_id:@todo.id, commentable_type:"Todo") , class: "action_link"  if authenticated? %>
+
+   </ul>
 
 </section>

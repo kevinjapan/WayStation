@@ -9,6 +9,7 @@ class ProgrammesController < ApplicationController
    end
 
    def show
+      # @programme is retrieved by set_programme
       @projects = @programme.projects
    end
 

@@ -9,7 +9,9 @@ class TodosController < ApplicationController
    end
 
    def show
+      # @todo is retrieved by set_todo
       @task = @todo.task
+      @comments = @todo.comments
    end
 
    def new
@@ -31,7 +33,12 @@ class TodosController < ApplicationController
     end
   
     def update
+
       @task_id = params[:task_id]
+
+      # to do : how can we output/return here to view rcvd data
+      # render :log, test: "you tried"
+      
       if @todo.update(todo_params)
         redirect_to @todo
       else
@@ -51,7 +58,7 @@ class TodosController < ApplicationController
       end
 
       def todo_params
-         params.expect(todo: [ :title, :task_id ])
+         params.expect(todo: [ :title, :task_id, :done_at])
       end
 
 

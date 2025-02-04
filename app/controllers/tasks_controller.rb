@@ -5,10 +5,20 @@ class TasksController < ApplicationController
    before_action :set_task, only: %i[ show edit update ]
    
    def index
+      @project = Project.new(params[:project_id])
+
+      # in 'All Tasks' we show Project title alongside task for quick UI lookup
+      @projects = Project.all  # from this we can resolve task.project_id to project.title
+
+      # to do : we need to associate project.title in each task - time for some Ruby!
+
       @tasks = Task.all
+
+
    end
 
    def show
+      # @task is retrieved by set_task
       @project = @task.project
       @todos = @task.todos
    end

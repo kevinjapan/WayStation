@@ -11,6 +11,7 @@ class ProjectsController < ApplicationController
    end
 
    def show
+      # @project is retrieved by set_project
       @programme = @project.programme
       @tasks = @project.tasks
    end
