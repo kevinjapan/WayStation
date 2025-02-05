@@ -30,7 +30,7 @@ nav a {
 }
 
 main {
-   max-width: 1024px;
+   /* max-width: 1024px; */
    margin: 0 auto;
 }
 
@@ -53,6 +53,9 @@ section img {
 }
 .light_grey_text {
    color:hsl(0, 0%, 90%);
+}
+.bold_text {
+   font-weight:700;
 }
 section .grey_text {
    font-weight:100;
@@ -80,6 +83,7 @@ section.artifacts_list {
    /* margin:0; */
    padding:.5rem;
    border:solid 1px lightgrey;
+   border-radius:.5rem;
 }
 ul {
    margin:0.5rem;
@@ -91,23 +95,31 @@ ul {
 }
 
 .artefact_type {
+   display:flex;
+   align-items:center;
    width:fit-content;
+   /* height:fit-content; */
    margin:0;
-   padding:.15rem .25rem;
-   border:solid 1px lightgrey;
+   padding:.25rem .5rem;
+   font-size:1.5rem;
+   font-weight:100;
+   /* font-style:italic; */
+   color:hsl(0, 0%, 92%);
+   border:solid 1px hsl(0, 0%, 90%);
    border-top:none;
-   border-left:none;
-   border-radius:0 0 .5rem 0;
+   border-right:none;
+   /* border-radius:0 0 0 .5rem; */
 }
 /* title/navbar on artifact views */
 section.artifact_bar {
    display:flex;
    justify-content:space-between;
-   align-items:center;
+   /* align-items:center; */
    margin:0;
    margin-bottom:1rem;
-   padding:.25rem .5rem;
-   border:solid 1px lightgrey;
+   padding:0 0 0 .5rem;
+   border:solid 1px hsl(0, 0%, 83%);
+   border-radius:.5rem;
 }
 .action_link,
 button.action_link,
@@ -152,7 +164,8 @@ form {
 .items_center {
    align-items:center;
 }
-
+.gap_1 {gap:1rem;}
+.gap_\.25 {gap:.25rem;}
 
 /* headings */
 h1,h2,h3,h4,h5,h6 {
@@ -189,15 +202,28 @@ h1 {
 }
 
 /* to do : tidy utility classes.. */
-.bg_yellow {background:yellow;}
 .m_0 {margin:0;}
 .m_1 {margin:1rem;}
 .mb_1 {margin-bottom:1rem;}
 .p_0 {padding:0;}
-.p_0\.25 {padding:.25rem;}
+.p_0\.25, .p_\.25 {padding:.25rem;}
+.p_1 {padding:1rem;}
 .px_1 {padding-left:1rem;padding-right:1rem;}
 .no_decor {text-decoration:none;}
 
 .hover_highlight:hover {background:hsl(0, 0%,96%);}
 .inline_block {display:inline-block;}
 .border {border:solid 1px lightgrey;}
+.icon_size {max-height:14px;max-height:14px;}
+.no_wrap {text-wrap: nowrap;}
+.rounded {border-radius:.25rem;}
+
+.bg_lightgrey {background:hsl(0, 0%, 98%);}
+.bg_yellow {background:yellow;}
+.bg_yellow_100 {background:hsl(60, 100%, 80%);}
+
+/* flash notice */
+.notice {
+   padding:.5rem;
+   background:hsl(60, 100%, 80%);
+}

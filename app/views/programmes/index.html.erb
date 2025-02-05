@@ -2,10 +2,9 @@
 
    <section class="artifact_bar">
       <div>
-      <h4>&nbsp;</h4>
-         <h1 class="light_grey_text">Programmes</h1>
+         <h4 class="light_grey_text">Home</h4>
+         <h1>Programmes</h1>
       </div>
-      <%= link_to "New programme", new_programme_path, class: "action_link" if authenticated? %>
    </section>
 
    <section class="artifacts_list">
@@ -19,5 +18,6 @@
             <li><%= link_to programme.title, programme %></li>
          <% end %>
       </ul>
+      <%= link_to "New programme", new_programme_path, class: "action_link" if authenticated? %>
    </section>
 </section>

@@ -2,20 +2,21 @@
 
    <section class="artifact_bar">
       <div>
-         <h3 class="artefact_type light_grey_text">TODO</h3>
          <%= link_to task_path(@task), class: "p_0.25 m_0 no_decor inline_block hover_highlight" do %>
-            <h4><span class="grey_text">Task</span> <%= @task.title %></h4>
+            <!--div class="flex items_center gap_.25 no_wrap">
+               <%= image_tag("arrow-up.svg", class: "icon_size") %>-->
+               <h4><span class="grey_text">Task</span> <%= @task.title %></h4>
+            <!/div-->
          <% end %>
          <h1><%= @todo.title %></h1>
-         <!--h3><span class="light_grey_text">id</span> <%= @todo.id %></h3-->
+         <h3><span class="light_grey_text">id</span> <%= @todo.id %></h3>
          <h3><span class="grey_text">done_at</span> <%= @todo.done_at %></h3>
       </div>
    </section>
 
    <section class="flex">        
       <%= button_to "Delete", @todo, method: :delete, class:"action_link" , data: { turbo_confirm: "Are you sure?" } %>
-      <!--%= link_to "Edit", edit_todo_path(@todo, task_id:@task.id) %-->
-      <%= link_to "Edit", edit_todo_path, class: "action_link" if authenticated? %>    
+      <%= link_to "Edit", edit_todo_path(@todo, task_id:@task.id) , class: "action_link" if authenticated? %>    
    </section>
 
    <section>

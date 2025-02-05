@@ -11,8 +11,8 @@
     </ul>
   <% end %>
 
-   <%= form.text_field :commentable_id, value: params["commentable_id"] %>
-   <%= form.text_field :commentable_type, value: params["commentable_type"].singularize.capitalize %> <!-- to do : capitalize not working? -->
+   <%= form.hidden_field :commentable_id, value: params["commentable_id"] %>
+   <%= form.hidden_field :commentable_type, value: params["commentable_type"].singularize.capitalize %> <!-- to do : capitalize not working? -->
    
    <div class="form_row">
      <%= form.label :title %>

@@ -5,10 +5,9 @@
          <%= link_to project_path(@project), class: "p_0.25 m_0 no_decor inline_block hover_highlight" do %>
             <h4><span class="light_grey_text">Project</span> <%= @project.title %></h4>
          <% end %>
-         <h1><!--span class="light_grey_text">Task</span--> <%= @task.title %></h1>
+         <h1><span class="light_grey_text">Task</span> <%= @task.title %></h1>
          <!--h3><span class="light_grey_text">id</span> <%= @task.id %></h3-->
       </div>
-      <%= link_to "New todo", new_todo_path(task_id:@task.id) , class: "action_link"  if authenticated? %>
    </section>
          
    <div class="border px_1 mb_1 grey_text"> <p><%= @task.desc%></p></div>
@@ -49,14 +48,13 @@
              
             </li>
          <% end %>
-
-
       </ul>
+      <%= link_to "New todo", new_todo_path(task_id:@task.id) , class: "action_link"  if authenticated? %>
    </section>
 
    <section class="flex">
       <%= button_to "Delete", @task, method: :delete, class:"action_link" , data: { turbo_confirm: "Are you sure?" } %>
-      <%= link_to "Edit", edit_task_path, class: "action_link" if authenticated? %>
+      <%= link_to "Edit", edit_task_path(@task, project_id:@project.id), class: "action_link" if authenticated? %>
    </section>
 
    <section>

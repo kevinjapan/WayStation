@@ -10,6 +10,7 @@
    </section>
 
    <section>
+      <!-- to do : can we inspect @comment and see where commentable is coming from.. -->
       <%= link_to @comment.commentable.title, polymorphic_path(@comment.commentable) %>
    </section>
 

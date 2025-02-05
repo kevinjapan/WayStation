@@ -1,14 +1,14 @@
 <section>
 
    <section class="artifact_bar">
+      <!--h3 class="artefact_type light_grey_text">project</h3-->
       <div>
          <%= link_to programme_path(@programme), class: "p_0.25 m_0 no_decor inline_block hover_highlight" do %>
             <h4><span class="light_grey_text ">Programme</span> <%= @programme.title %></h4>
          <% end %>
-         <h1><!--span class="light_grey_text">Project</span--> <%= @project.title %></h1>
+         <h1><span class="light_grey_text">Project</span> <%= @project.title %></h1>
          <!--h3><span class="light_grey_text">id</span> <%= @project.id %></h3-->
       </div>
-      <%= link_to "New task", new_task_path(project_id:@project.id) , class: "action_link"  if authenticated? %>
    </section>
    
    <div class="border px_1 mb_1 grey_text"> <p><%= @project.desc%></p></div>
@@ -20,11 +20,12 @@
             <li><%= link_to task.title, task %></li>
          <% end %>
       </ul>
+      <%= link_to "New task", new_task_path(project_id:@project.id) , class: "action_link"  if authenticated? %>
    </section>
 
    <section class="flex">    
       <%= button_to "Delete", @project, method: :delete, class:"action_link" , data: { turbo_confirm: "Are you sure?" } %>
-      <%= link_to "Edit", edit_project_path, class: "action_link" if authenticated? %>  
+      <%= link_to "Edit", edit_project_path(@project, programme_id:@programme.id), class: "action_link" if authenticated? %>  
    </section>
 
    <section>

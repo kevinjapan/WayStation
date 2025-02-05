@@ -1,7 +1,15 @@
 <h1>New comment</h1>
 
-<section>
-   <%= @comment.inspect %>
+
+<!-- to do : need to show the item title that we are adding comment to.. -->
+<section class="flex gap_1">
+   <p>
+      Adding comment to 
+      <span class="border bg_lightgrey inline_block p_.25">
+         <span class="grey_text"><%=@commentable_type%> :  </span> 
+         <span class="bold_text"> <%= @commentable.title %></span>
+      </span>
+   </p>
 </section>
 
 <section>
@@ -10,10 +18,7 @@
 
 <section>
    <!-- to do : we should return to 'commentable_type' path not hardcoded 'todo_path'-->
-   <!--%= link_to "Cancel", todo_path(@commentable_id), class:"action_link" %-->
+   <%= link_to "Cancel", todo_path(@commentable_id), class:"action_link" %>
 </section>
+4
 
-
-<%=@comment.title%>
-<%=@commentable_id%>
-<%=@commentable_type%>

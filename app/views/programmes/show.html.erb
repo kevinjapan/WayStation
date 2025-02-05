@@ -5,9 +5,8 @@
          <%= link_to programmes_path, class: "p_0.25 m_0 no_decor inline_block hover_highlight" do %>
             <h4><span class="light_grey_text">Programmes</span></h4>
          <% end %>
-         <h1><span class="light_grey_text">Programme</span> <%= @programme.title %></h1>
+         <h1><!--span class="light_grey_text">Programme</span--> <%= @programme.title %></h1>
       </div>
-      <%= link_to "New project", new_project_path(programme_id:@programme.id), class: "action_link"  if authenticated? %>
    </section>
       
    <p><%= @programme.desc%></p>
@@ -23,11 +22,11 @@
             <li><%= link_to project.title, project %></li>
          <% end %>
       </ul>
+      <%= link_to "New project", new_project_path(programme_id:@programme.id), class: "action_link"  if authenticated? %>
    </section>
    <section class="flex">
       <%= button_to "Delete", @programme, method: :delete, class:"action_link" , data: { turbo_confirm: "Are you sure?" } %>
-      <!--%= link_to "Edit", edit_programme_path(@programme) %-->
-      <%= link_to "Edit", edit_programme_path, class: "action_link" if authenticated? %>
+      <%= link_to "Edit", edit_programme_path(@programme) , class: "action_link" if authenticated? %>
    </section>
 
    <section>
