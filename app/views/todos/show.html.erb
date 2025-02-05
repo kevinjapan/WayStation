@@ -16,7 +16,7 @@
       </div>
    </section>
 
-   <section class="flex">        
+   <section class="flex align_end">        
       <%= button_to "Delete", @todo, method: :delete, class:"action_link" , data: { turbo_confirm: "Are you sure?" } %>
       <%= link_to "Edit", edit_todo_path(@todo, task_id:@task.id) , class: "action_link" if authenticated? %>    
    </section>
@@ -37,7 +37,9 @@
                <div class="card_content"><%= comment.content %></div>
             </li>
          <% end %>
+         <div class="flex align_end">
          <%= link_to "New comment", new_comment_path(commentable_id:@todo.id, commentable_type:"Todo") , class: "action_link"  if authenticated? %>
+         </div>
 
       </ul>
    </section>

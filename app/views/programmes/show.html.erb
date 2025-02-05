@@ -9,9 +9,7 @@
       </div>
    </section>
       
-   <p><%= @programme.desc%></p>
-
-   
+   <p><%= @programme.desc%></p>   
 
    <!--<%= link_to "New project", new_project_path(programme_id:@programme.id) if authenticated? %>-->
    
@@ -22,9 +20,11 @@
             <li><%= link_to project.title, project %></li>
          <% end %>
       </ul>
-      <%= link_to "New project", new_project_path(programme_id:@programme.id), class: "action_link"  if authenticated? %>
+      <div class="flex align_end">
+         <%= link_to "New project", new_project_path(programme_id:@programme.id), class: "action_link"  if authenticated? %>
+      </div>
    </section>
-   <section class="flex">
+   <section class="flex align_end">
       <%= button_to "Delete", @programme, method: :delete, class:"action_link" , data: { turbo_confirm: "Are you sure?" } %>
       <%= link_to "Edit", edit_programme_path(@programme) , class: "action_link" if authenticated? %>
    </section>
@@ -42,7 +42,9 @@
                <div class="card_content"><%= comment.content %></div>
             </li>
          <% end %>
-         <%= link_to "New comment", new_comment_path(commentable_id:@programme.id, commentable_type:"Programme") , class: "action_link"  if authenticated? %>
+         <div class="flex align_end">
+            <%= link_to "New comment", new_comment_path(commentable_id:@programme.id, commentable_type:"Programme") , class: "action_link"  if authenticated? %>
+         </div>
       <ul>
    </section>
 
