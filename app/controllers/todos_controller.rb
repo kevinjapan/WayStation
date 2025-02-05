@@ -11,6 +11,7 @@ class TodosController < ApplicationController
    def show
       # @todo is retrieved by set_todo
       @task = @todo.task
+      @project = @task.project
       @comments = @todo.comments
    end
 

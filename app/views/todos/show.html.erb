@@ -2,9 +2,11 @@
 
    <section class="artifact_bar">
       <div>
+         <%= link_to project_path(@project), class: "p_0.25 m_0 no_decor inline_block hover_highlight" do %>
+               <h5><span class="grey_text">Project</span> <%= @project.title %></h5>
+            <!/div-->
+         <% end %>
          <%= link_to task_path(@task), class: "p_0.25 m_0 no_decor inline_block hover_highlight" do %>
-            <!--div class="flex items_center gap_.25 no_wrap">
-               <%= image_tag("arrow-up.svg", class: "icon_size") %>-->
                <h4><span class="grey_text">Task</span> <%= @task.title %></h4>
             <!/div-->
          <% end %>
