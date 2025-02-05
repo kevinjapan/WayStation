@@ -22,7 +22,7 @@
    <%= javascript_importmap_tags %>
 </head>
    <body>
-      <nav>
+      <nav class="flex items_center">
          <%= link_to "Home", root_path %>
          <%= button_to "Log out", session_path, method: :delete, class:"action_link"  if authenticated? %>
          <%= link_to "Login", new_session_path unless authenticated? %>
