@@ -14,6 +14,7 @@ class ProjectsController < ApplicationController
       # @project is retrieved by set_project
       @programme = @project.programme
       @tasks = @project.tasks
+      @comments = @project.comments
    end
 
    def new
@@ -39,6 +40,7 @@ class ProjectsController < ApplicationController
       if @project.update(project_params)
         redirect_to @project
       else
+         flash[:notice] = "The project failed to update " + @project.inspect
         render :edit, status: :unprocessable_entity
       end
     end

@@ -20,6 +20,7 @@ class CommentsController < ApplicationController
       if @comment.save
          redirect_to @comment
       else
+         flash[:notice] = "The comment was not created " + @comment.inspect
          render :new, status: :unprocessable_entity
       end
    end

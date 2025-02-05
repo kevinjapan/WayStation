@@ -42,6 +42,7 @@ class TodosController < ApplicationController
       if @todo.update(todo_params)
         redirect_to @todo
       else
+         flash[:notice] = "The todo failed to update " + @todo.inspect
         render :edit, status: :unprocessable_entity
       end
     end

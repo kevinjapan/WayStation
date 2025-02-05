@@ -11,6 +11,11 @@ class ProgrammesController < ApplicationController
    def show
       # @programme is retrieved by set_programme
       @projects = @programme.projects
+      @comments = @programme.comments
+
+      # to do : useful for deubugging?
+      # render plain: @projects.inspect , status: 404
+
    end
 
    def new
@@ -36,6 +41,7 @@ class ProgrammesController < ApplicationController
       if @programme.update(programme_params)
          redirect_to @programme
       else
+         flash[:notice] = "The programme failed to update " + @programme.inspect
          render :edit, status: :unprocessable_entity
       end
     end
