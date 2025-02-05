@@ -13,12 +13,16 @@ class CommentsController < ApplicationController
       @comment = Comment.new
       @commentable_id = params[:commentable_id]
       @commentable_type =  params[:commentable_type]
+
+      # let's pass the ActionRecord (of type 'commentable_type') we are adding the comment to
+      type = @commentable_type
+      @commentable = type.constantize.find(@commentable_id)
    end
 
    def create
       @comment = Comment.new(comment_params)
       if @comment.save
-         redirect_to @comment
+         redirect_to @comment.commentable
       else
          flash[:notice] = "The comment was not created " + @comment.inspect
          render :new, status: :unprocessable_entity
