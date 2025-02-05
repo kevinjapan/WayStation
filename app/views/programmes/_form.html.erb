@@ -10,8 +10,9 @@
       <div><%= form.rich_text_area :desc %></div>
    </div>
  
-   <div class="form_row">
+   <div class="flex align_end">
      <%= form.submit %>
+   <%= link_to "Cancel", programmes_path, class:"action_link" %>
    </div>
    
  <% end %>

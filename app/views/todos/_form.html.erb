@@ -10,8 +10,10 @@
      <%= form.text_field :task_id, value:@task_id, readonly: true %>
    </div>
  
-   <div>
-     <%= form.submit %>
+   <div class="flex align_end">
+      <%= form.submit %>
+      <%= link_to "Cancel", task_path(@task_id), class:"action_link" %>
    </div>
+
  <% end %>
  

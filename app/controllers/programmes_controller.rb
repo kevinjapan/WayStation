@@ -13,7 +13,7 @@ class ProgrammesController < ApplicationController
       @projects = @programme.projects
       @comments = @programme.comments
 
-      # to do : useful for deubugging?
+      # to do : review and use example - useful for deubugging?
       # render plain: @projects.inspect , status: 404
 
    end

@@ -15,8 +15,9 @@
      <%= form.text_field :project_id, value:@project_id, readonly: true %>
    </div>
 
-   <div>
-     <%= form.submit %>
+   <div class="flex align_end">
+      <%= form.submit %>
+      <%= link_to "Cancel", project_path(@project_id), class:"action_link"%>
    </div>
  <% end %>
  

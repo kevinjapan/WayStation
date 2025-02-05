@@ -24,8 +24,9 @@
       <div><%= form.rich_text_area :content %></div>
    </div>
 
-   <div>
-     <%= form.submit %>
+   <div class="flex align_end">
+      <%= form.submit %>
+      <%= link_to "Cancel", @commentable, class:"action_link" %>
    </div>
  <% end %>
  

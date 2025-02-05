@@ -16,8 +16,9 @@
    </div>
    
 
-   <div>
-     <%= form.submit %>
+   <div class="flex align_end">
+      <%= form.submit %>
+      <%= link_to "Cancel", programme_path(@programme_id), class:"action_link" %>
    </div>
  <% end %>
  

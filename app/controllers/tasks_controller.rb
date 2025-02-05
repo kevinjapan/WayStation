@@ -9,10 +9,18 @@ class TasksController < ApplicationController
 
       # in 'All Tasks' we show Project title alongside task for quick UI lookup
       @projects = Project.all
-
-      # to do : we need to associate project.title in each task
-
       @tasks = Task.all
+
+
+      with_associated_array = []
+
+      # create list including project.title
+      @tasks.each do |task|
+         my_project = Project.find(task.project_id)
+         # to do : add my_project.title to new array - save ruby array documentation
+      end
+
+      # to do : return the new with_associated_array and display in index.
    end
 
    def show
