@@ -23,19 +23,20 @@
       <%= link_to "All Todos", todos_path %>
    </section>
 
-   <ul>
 
-      <% @comments.each do |comment| %>
-         <!--li><%= link_to comment.title, comment %></li-->
-         <li class="card">
-            <div class="card_title_bar"><%=comment.title%></div>
-            <div class="card_content"><%= comment.content %></div>
-         </li>
-      <% end %>
+   <!-- to do : this block is duplicated in all show.html.erb files -->
+   <section>
+      <ul>
+         <% @comments.each do |comment| %>
+            <!--li><%= link_to comment.title, comment %></li-->
+            <li class="card">
+               <div class="card_title_bar"><%=comment.title%></div>
+               <div class="card_content"><%= comment.content %></div>
+            </li>
+         <% end %>
+         <%= link_to "New comment", new_comment_path(commentable_id:@todo.id, commentable_type:"Todo") , class: "action_link"  if authenticated? %>
 
-      
-      <%= link_to "New comment", new_comment_path(commentable_id:@todo.id, commentable_type:"Todo") , class: "action_link"  if authenticated? %>
-
-   </ul>
+      </ul>
+   </section>
 
 </section>
