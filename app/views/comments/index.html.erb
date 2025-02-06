@@ -1,2 +1,13 @@
-<h1>Comments#index</h1>
-<p>Find me in app/views/comments/index.html.erb</p>
+<h1>All Comments</h1>
+
+
+<!-- to do : pagination on these all_artifacts views : rollout -->
+<section>
+   <ul class="all_artfacts_list">
+      <% @augmented_comments.each do |comment| %>
+         <li>
+            <%= link_to comment.title, comment %>
+         </li>
+      <% end %>
+   </ul>
+</section>
