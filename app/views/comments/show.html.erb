@@ -1,44 +1,32 @@
 <section>
 
+   <% # artifact bar %>
    <section class="artifact_bar">
       <div>
-      <div>
-         <span class="border bg_lightgrey inline_block m_.5 ml_0 p_.25">
-            <span class="grey_text"><%=@comment.commentable_type%> :  </span> 
-            <span class="bold_text"> <%= link_to @comment.commentable.title, polymorphic_path(@comment.commentable), class: "p_0.25 m_0 no_decor inline_block hover_highlight" %></span>
-         </span>
-      </div>
+         <div>
+            <span class="parent_token m_1 ml_0">
+               <span class="grey_text"><%=@comment.commentable_type%> :  </span> 
+               <span class="bold_text"> <%= link_to @comment.commentable.title, polymorphic_path(@comment.commentable), class: "p_0.25 m_0 no_decor inline_block hover_highlight" %></span>
+            </span>
+         </div>
          <h3><!--span class="light_grey_text">Comment</span--> <%= @comment.title %></h3>
-         
-         
-         
-
-         <p><%= @comment.content %></p>
-         <p><span class="light_grey_text">id</span> <%= @comment.commentable_id %></p>
-         <p><span class="light_grey_text">type</span> <%= @comment.commentable_type %></p>
       </div>
    </section>
+
+   <% # artifact content %>
+   <p><%= @comment.content %></p>
    
+   <% # artifact ctrls %>
    <section class="flex align_end">    
       <%= button_to "Delete", @comment, method: :delete, class:"action_link" , data: { turbo_confirm: "Are you sure?" } %>
       <%= link_to "Edit", edit_comment_path(@comment, commentable_id:@comment.commentable_id, commentable_type:@comment.commentable_type), class: "action_link" if authenticated? %>  
    </section>
-
-
-   <!-- 
-   
-                           to do : flesh out all controller methods and view for comments 
-      
-   -->
-
-
    <section>
-      <!--%= link_to "Back to parent programme",  programme_path(@programme) %  to do : link back to commentable record we came from-->
       <%= link_to "All Comments", comments_path %>
    </section>
 
-   <section>
-      <%= link_to @comment.commentable.title, polymorphic_path(@comment.commentable) %>
-   </section>
+   <!-- 
+      to do : flesh out all controller methods and view for comments 
+   -->
 
 </section>

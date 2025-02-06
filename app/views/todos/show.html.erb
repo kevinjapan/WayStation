@@ -1,5 +1,6 @@
 <section>
 
+   <% # artifact bar %>
    <section class="artifact_bar">
       <div>
          <%= link_to project_path(@project), class: "p_0.25 m_0 no_decor inline_block hover_highlight" do %>
@@ -16,6 +17,7 @@
       </div>
    </section>
 
+   <% # artifact ctrls %>
    <section class="flex align_end">        
       <%= button_to "Delete", @todo, method: :delete, class:"action_link" , data: { turbo_confirm: "Are you sure?" } %>
       <%= link_to "Edit", edit_todo_path(@todo, task_id:@task.id) , class: "action_link" if authenticated? %>    
@@ -27,7 +29,8 @@
    </section>
 
 
-   <!-- to do : this block is duplicated in all show.html.erb files -->
+   <!-- to do : this block is duplicated in all artifact show.html.erb files -->
+   <% # artifact comments %>
    <section>
       <ul>
          <% @comments.each do |comment| %>

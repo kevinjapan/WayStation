@@ -1,5 +1,6 @@
 <section>
 
+   <% # artifact bar %>
    <section class="artifact_bar">
       <div>
          <%= link_to programmes_path, class: "p_0.25 m_0 no_decor inline_block hover_highlight" do %>
@@ -8,11 +9,16 @@
          <h1><span class="light_grey_text">Programme</span> <%= @programme.title %></h1>
       </div>
    </section>
-      
+
+
+   <% # artifact desc %>
    <p><%= @programme.desc%></p>   
+
 
    <!--<%= link_to "New project", new_project_path(programme_id:@programme.id) if authenticated? %>-->
    
+   
+   <% # artifact child list %>
    <section class="in_page_artifacts_list">
       <h3 class="grey_text">Projects</h3>
       <ul>
@@ -24,6 +30,8 @@
          <%= link_to "New project", new_project_path(programme_id:@programme.id), class: "action_link"  if authenticated? %>
       </div>
    </section>
+
+   <% # artifact ctrls %>
    <section class="flex align_end">
       <%= button_to "Delete", @programme, method: :delete, class:"action_link" , data: { turbo_confirm: "Are you sure?" } %>
       <%= link_to "Edit", edit_programme_path(@programme) , class: "action_link" if authenticated? %>
@@ -33,6 +41,7 @@
       <%= link_to "All Programmes", programmes_path %>
    </section>
 
+   <% # artifact comments %>
    <section>
       <ul>
          <% @comments.each do |comment| %>

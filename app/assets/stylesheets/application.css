@@ -80,7 +80,7 @@ ul {
    list-style:none;
 }
 
-.artefact_type {
+.artfact_type {
    display:flex;
    align-items:center;
    width:fit-content;
@@ -187,10 +187,10 @@ h1 {
    background:hsl(0, 0%, 98%);
    border:solid 1px lightgrey;
 }
-ul.all_artefacts_list {
+ul.all_artfacts_list {
    width:fit-content;
 }
-ul.all_artefacts_list li {
+ul.all_artfacts_list li {
    display:grid;
    grid-template-columns:2fr 1fr;
    align-items:center;

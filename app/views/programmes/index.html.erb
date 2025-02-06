@@ -3,16 +3,19 @@
    <section class="artifact_bar">
       <div>
          <h4 class="light_grey_text">Home</h4>
-         <h1>Programmes</h1>
+         <h1>WayStation</h1>
       </div>
    </section>
 
    <section class="in_page_artifacts_list">
+      <h3 class="grey_text">Programmes</h3>
       <ul>
          <% @programmes.each do |programme| %>
             <li><%= link_to programme.title, programme %></li>
          <% end %>
       </ul>
-      <%= link_to "New programme", new_programme_path, class: "action_link" if authenticated? %>
+      <div class="flex align_end">
+         <%= link_to "New programme", new_programme_path, class: "action_link" if authenticated? %>
+      </div>
    </section>
 </section>
