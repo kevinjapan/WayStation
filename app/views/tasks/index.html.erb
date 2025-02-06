@@ -1,7 +1,7 @@
 <h1>All Tasks</h1>
 
 <!--  
-to do : list project name alongside each task
+to do : list project name alongside each task - from controller - see index in TasksController
 -->
 
 <section>
@@ -10,13 +10,4 @@ to do : list project name alongside each task
          <li><%= link_to task.title, task %><%= task.project_id %></li>
       <% end %>
    </ul>
-</section>
-
-<!-- to do : temp - just to prove we have projects list available -->
-<section>
-<ul>
-<% @projects.each do |project| %>
-   <li><%= project.title %></li>
-<% end %>
-</ul>
 </section>

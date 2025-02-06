@@ -36,9 +36,6 @@ class TodosController < ApplicationController
     def update
 
       @task_id = params[:task_id]
-
-      # to do : how can we output/return here to view rcvd data
-      # render :log, test: "you tried"
       
       if @todo.update(todo_params)
         redirect_to @todo
