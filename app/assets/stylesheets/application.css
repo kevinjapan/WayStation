@@ -166,10 +166,14 @@ h1 {
    margin:0;
    padding:.5rem;
    height:fit-content;
-   font-style:italic;
+   /* font-style:italic; */
    font-weight:100;
    color:hsl(0, 0%, 70%);
    border-bottom:solid 1px lightgrey;
+   text-decoration:none;
+}
+.card_title_bar a {
+   text-decoration:none;
 }
 .card_content {
    width:100%;
@@ -208,10 +212,13 @@ utilities
 
 /* spacing */
 .m_0     {margin:0;}
+.m_\.5    {margin:.5rem;}
 .m_1     {margin:1rem;}
+.ml_0    {margin-left:0;}
 .mb_1    {margin-bottom:1rem;}
 .p_0     {padding:0;}
 .p_\.25  {padding:.25rem;}
+.p_\.5  {padding:.5rem;}
 .p_1     {padding:1rem;}
 .px_1    {padding-left:1rem;padding-right:1rem;}
 
