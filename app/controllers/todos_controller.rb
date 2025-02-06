@@ -6,6 +6,20 @@ class TodosController < ApplicationController
 
    def index
       @todos = Todo.all
+      @tasks = Task.all
+
+      @augmented_todos = []
+      the_augmented_todos = []
+
+      # create list augmented w/ project.title
+      @todos.each do |todo|
+         my_task = Task.find(todo.task_id)
+         augmented_todo = [todo,my_task]
+         the_augmented_todos.push(augmented_todo)
+      end
+
+      # sort by project and task title
+      @augmented_todos = the_augmented_todos.sort_by { |todo, task| [task.title, todo.title] }
    end
 
    def show

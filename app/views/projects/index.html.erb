@@ -1,9 +1,15 @@
 <h1>All Projects</h1>
 
 <section>
-   <ul>
-      <% @projects.each do |project| %>
-         <li><%= link_to project.title, project %></li>
+   <ul class="all_artefacts_list">
+      <% @augmented_projects.each do |project,programme| %>
+         <li>
+            <%= link_to project.title, project %>
+            <span class="parent_token">
+               <span class="grey_text">programme :  </span>
+               <%= link_to programme.title, programme %>
+            </span>
+         </li>
       <% end %>
    </ul>
 </section>

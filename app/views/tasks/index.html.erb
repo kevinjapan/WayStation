@@ -1,13 +1,16 @@
 <h1>All Tasks</h1>
 
-<!--  
-to do : list project name alongside each task - from controller - see index in TasksController
--->
-
 <section>
-   <ul>
-      <% @tasks.each do |task| %>
-         <li><%= link_to task.title, task %><%= task.project_id %></li>
+   <ul class="all_artefacts_list">
+      <% @augmented_tasks.each do |task,project| %>
+         <li>
+            <%= link_to task.title, task %>
+            <span class="parent_token">
+               <span class="grey_text">project :  </span>
+               <%= link_to project.title, project %>
+            </span>
+         </li>
       <% end %>
    </ul>
 </section>
+

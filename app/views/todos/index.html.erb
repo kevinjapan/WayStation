@@ -1,9 +1,15 @@
 <h1>All Todos</h1>
 
 <section>
-  <ul>
-      <% @todos.each do |todo| %>
-         <li><%= link_to todo.title, todo %></li>
+   <ul class="all_artefacts_list">
+      <% @augmented_todos.each do |todo,task| %>
+         <li>
+            <%= link_to todo.title, todo %>
+            <span class="parent_token">         
+               <span class="grey_text">task :  </span>
+               <%= link_to task.title, task %>
+            </span>
+         </li>
       <% end %>
   </ul>
 </section>

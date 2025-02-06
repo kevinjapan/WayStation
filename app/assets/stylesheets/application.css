@@ -65,7 +65,7 @@ artifacts_list
 list of main application artifacts - projects/tasks etc 
 requires plenty spacing
 */
-section.artifacts_list {
+section.in_page_artifacts_list {
    /* margin:0; */
    padding:.5rem;
    border:solid 1px lightgrey;
@@ -180,6 +180,21 @@ h1 {
    margin:.5rem 0;
    padding:.5rem;
 }
+.parent_token {
+   display:inline-block;
+   width:fit-content;
+   padding:.25rem;
+   background:hsl(0, 0%, 98%);
+   border:solid 1px lightgrey;
+}
+ul.all_artefacts_list {
+   width:fit-content;
+}
+ul.all_artefacts_list li {
+   display:grid;
+   grid-template-columns:2fr 1fr;
+   align-items:center;
+}
 
 
 /* flash notice */
@@ -230,7 +245,7 @@ utilities
    color:hsl(0, 0%, 90%);
 }
 .bold_text {
-   font-weight:700;
+   font-weight:500;
 }
 .no_decor {
    text-decoration:none;

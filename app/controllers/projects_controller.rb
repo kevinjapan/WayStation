@@ -4,10 +4,24 @@ class ProjectsController < ApplicationController
    
    before_action :set_project, only: %i[ show edit update ]
 
-   # The index method here is an Action. Even though it's an empty method, 
-   # Rails will default to rendering a template (view) with the matching name.
+
    def index
+
       @projects = Project.all
+      @programmes = Programme.all
+
+      @augmented_projects = []
+      the_augmented_projects = []
+
+      # create list augmented w/ project.title
+      @projects.each do |project|
+         my_programme = Programme.find(project.programme_id)
+         augmented_project = [project,my_programme]
+         the_augmented_projects.push(augmented_project)
+      end
+
+      # sort by project and project title
+      @augmented_projects = the_augmented_projects.sort_by { |project, programme| [programme.title, project.title] }
    end
 
    def show
