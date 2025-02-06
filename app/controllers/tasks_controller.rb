@@ -6,8 +6,6 @@ class TasksController < ApplicationController
 
 
    def index
-      # to do : do we need @project here.?
-      @project = Project.new(params[:project_id])
 
       @projects = Project.all
       @tasks = Task.all
