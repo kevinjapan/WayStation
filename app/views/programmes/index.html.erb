@@ -8,11 +8,6 @@
    </section>
 
    <section class="artifacts_list">
-
-      <!-- to do : autoloading isn't working - researched, but nothing clear - suspect may be windows issue?
-            perhaps we have to use ubunt
-            tried w/ ubuntu - but autoload still not working.
-      -->
       <ul>
          <% @programmes.each do |programme| %>
             <li><%= link_to programme.title, programme %></li>
