@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
    
-   before_action :set_comment, only: %i[ show edit update ]
+   before_action :set_comment, only: %i[ show edit update destroy ]
+   before_action :set_commentable_data, only: %i[ new edit update ]
 
    def index
       
@@ -29,11 +30,10 @@ class CommentsController < ApplicationController
    end
 
    def new
-      @comment = Comment.new
-      @commentable_id = params[:commentable_id]
-      @commentable_type =  params[:commentable_type]
+      # @commentable_id | @commentable_type from set_commentable_data
 
-      # let's pass the ActionRecord (of type 'commentable_type') we are adding the comment to
+      @comment = Comment.new
+      # pass ActionRecord (of type 'commentable_type') we are adding the comment to
       type = @commentable_type
       @commentable = type.constantize.find(@commentable_id)
    end
@@ -48,19 +48,34 @@ class CommentsController < ApplicationController
       end
    end
 
+   # to do : complete edit|update functionality
    def edit
    end
 
    def update
+      if @comment.update(comment_params)
+        redirect_to @comment
+      else
+         flash[:notice] = "The comment failed to update " + @comment.inspect
+        render :edit, status: :unprocessable_entity
+      end
    end
 
    def destroy
+      @comment.destroy
+      # to do : back to commentable..
+      redirect_to projects_path
    end
 
    private
 
       def set_comment
          @comment = Comment.find(params[:id])
+      end
+
+      def set_commentable_data
+         @commentable_id = params[:commentable_id]
+         @commentable_type =  params[:commentable_type]
       end
 
       def comment_params

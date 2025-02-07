@@ -2,7 +2,7 @@ class TodosController < ApplicationController
 
    allow_unauthenticated_access only: %i[ index show ]
 
-   before_action :set_todo, only: %i[ show edit update ]
+   before_action :set_todo, only: %i[ show edit update destroy ]
 
    def index
       @todos = Todo.all

@@ -2,7 +2,7 @@ class ProgrammesController < ApplicationController
 
    allow_unauthenticated_access only: %i[ index show ]
 
-   before_action :set_programme, only: %i[ show edit update ]
+   before_action :set_programme, only: %i[ show edit update destroy ]
 
    def index
       @programmes = Programme.all

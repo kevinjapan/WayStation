@@ -2,7 +2,7 @@ class TasksController < ApplicationController
 
    allow_unauthenticated_access only: %i[ index show ]
    
-   before_action :set_task, only: %i[ show edit update ]
+   before_action :set_task, only: %i[ show edit update destroy ]
 
 
    def index
