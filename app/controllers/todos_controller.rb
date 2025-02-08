@@ -32,6 +32,8 @@ class TodosController < ApplicationController
    def new
       @todo = Todo.new
       @task_id = params[:task_id]
+      @task = Task.find(@task_id)
+      @project = Project.find(@task.project_id)
    end
 
    def create
@@ -45,6 +47,8 @@ class TodosController < ApplicationController
   
     def edit
       @task_id = params[:task_id]
+      @task = Task.find(@task_id)
+      @project = Project.find(@task.project_id)
     end
   
     def update

@@ -1,6 +1,18 @@
-<h1>New todo</h1>
 
 <section>
-   <%= render "form", todo: @todo %>
+   <span class="parent_token m_1 ml_0">
+      <span class="grey_text">project :  </span> 
+      <span class="bold_text"> <%= link_to @project.title, @project, class: "p_0.25 m_0 no_decor inline_block hover_highlight" %></span>
+      <span class="grey_text">task :  </span> 
+      <span class="bold_text"> <%= link_to @task.title, @task, class: "p_0.25 m_0 no_decor inline_block hover_highlight" %></span>
+   </span>
+</section>
+
+<section>
+   <h1>New todo</h1>
+
+   <section>
+      <%= render "form", todo: @todo %>
+   </section>
 </section>
 

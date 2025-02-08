@@ -34,6 +34,8 @@ class TasksController < ApplicationController
    def new
       @task = Task.new
       @project_id = params[:project_id]
+      @project = Project.find(@project_id)
+      @programme = Programme.find(@project.programme_id)
    end
 
    def create
@@ -50,6 +52,8 @@ class TasksController < ApplicationController
   
     def edit
       @project_id = params[:project_id]
+      @project = Project.find(@project_id)
+      @programme = Programme.find(@project.programme_id)
     end
   
     def update

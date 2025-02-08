@@ -1,4 +1,14 @@
-<h1>Edit project</h1>
 
-<%= render "form", project: @project %>
-<%= link_to "Cancel", @project, class:"action_link" %>
+<section>
+   <span class="parent_token m_1 ml_0">
+      <span class="grey_text">programmme :  </span> 
+      <span class="bold_text"> <%= link_to @programme.title, @programme, class: "p_0.25 m_0 no_decor inline_block hover_highlight" %></span>
+   </span>
+</section>
+
+<section>
+   <h1>Edit project</h1>
+
+   <%= render "form", project: @project %>
+   <%= link_to "Cancel", @project, class:"action_link" %>
+</section>

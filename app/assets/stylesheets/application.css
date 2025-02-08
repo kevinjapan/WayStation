@@ -305,3 +305,7 @@ utilities
 .bg_lightgrey  {background:hsl(0, 0%, 98%);}
 .bg_yellow     {background:yellow;}
 .bg_yellow_100 {background:hsl(60, 100%, 80%);}
+
+h4 {
+   font-weight:100;
+}

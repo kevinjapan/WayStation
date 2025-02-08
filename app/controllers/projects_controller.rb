@@ -34,6 +34,7 @@ class ProjectsController < ApplicationController
    def new
       @project = Project.new
       @programme_id = params[:programme_id]
+      @programme = Programme.find(@programme_id)
    end
 
    def create
@@ -47,6 +48,7 @@ class ProjectsController < ApplicationController
   
     def edit
       @programme_id = params[:programme_id]
+      @programme = Programme.find(@programme_id)
     end
   
     def update

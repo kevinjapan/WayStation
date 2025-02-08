@@ -1,4 +1,16 @@
-<h1>Edit task</h1>
 
-<%= render "form", task: @task %>
-<%= link_to "Cancel", @task, class:"action_link" %>
+<section>
+   <span class="parent_token m_1 ml_0">
+      <span class="grey_text">programme :  </span> 
+      <span class="bold_text"> <%= link_to @programme.title, @programme, class: "p_0.25 m_0 no_decor inline_block hover_highlight" %></span>
+      <span class="grey_text">project :  </span> 
+      <span class="bold_text"> <%= link_to @project.title, @project, class: "p_0.25 m_0 no_decor inline_block hover_highlight" %></span>
+   </span>
+</section>
+
+<section>
+   <h1>Edit task</h1>
+
+   <%= render "form", task: @task %>
+   <%= link_to "Cancel", @task, class:"action_link" %>
+</section>
