@@ -18,12 +18,24 @@
    <!--<%= link_to "New project", new_project_path(programme_id:@programme.id) if authenticated? %>-->
    
    
-   <% # artifact child list %>
-   <section class="in_page_artifacts_list">
+   <% # artifact childrens list %>
+   <section>
       <h3 class="grey_text">Projects</h3>
-      <ul>
+      <ul class="in_page_artifacts_list">
          <% @projects.each do |project| %>
-            <li><%= link_to project.title, project %></li>
+
+            <%= link_to project do %>
+               <li>
+                  <%= project.title %>
+                  <% if(project.desc.nil?) then  %>
+                     <span>&nbsp;</span>
+                  <% else %>
+                     <%=project.desc%>
+                  <% end %>
+                  <%= project.created_at.strftime("%a %-d %b %Y %H:%M") %>
+               </li>
+            <% end %>
+         
          <% end %>
       </ul>
       <div class="flex align_end">
@@ -31,15 +43,16 @@
       </div>
    </section>
 
+
    <% # artifact ctrls %>
    <section class="flex align_end">
       <%= button_to "Delete", @programme, method: :delete, class:"action_link" , data: { turbo_confirm: "Are you sure?" } %>
       <%= link_to "Edit", edit_programme_path(@programme) , class: "action_link" if authenticated? %>
    </section>
-
    <section>
       <%= link_to "All Programmes", programmes_path %>
    </section>
+
 
    <% # artifact comments %>
    <section>

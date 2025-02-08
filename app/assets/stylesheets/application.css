@@ -65,12 +65,6 @@ artifacts_list
 list of main application artifacts - projects/tasks etc 
 requires plenty spacing
 */
-section.in_page_artifacts_list {
-   /* margin:0; */
-   padding:.5rem;
-   border:solid 1px lightgrey;
-   border-radius:.5rem;
-}
 ul {
    margin:0.5rem;
    padding:0;
@@ -78,6 +72,51 @@ ul {
    flex-direction:column;
    gap:.5rem;
    list-style:none;
+}
+/* to do : should be ul also? */
+ul.in_page_artifacts_list {
+   /* margin:0; */
+   padding:.25rem .5rem;
+   border:solid 1px lightgrey;
+   border-radius:.5rem;
+   gap:0;
+}
+ul.in_page_artifacts_list a {
+   margin:0;
+   padding:0;
+}
+ul.in_page_artifacts_list li {   
+   display:grid;
+   grid-template-columns:1fr 2fr 1fr;
+   align-items:center;
+   cursor:pointer;
+   margin:0;
+   padding:.5rem;
+}
+/* to do : do we need to distinguish btwn all_artifacts_list and in_page_artifacts_list ? */
+ul.in_page_artifacts_list li:nth-child(2n) {
+   background:hsl(0, 0%, 97%);
+}
+ul.in_page_artifacts_list li:hover {
+   background:hsl(0, 0%, 93%);
+}
+ul.all_artifacts_list {
+   width:fit-content;
+}
+ul.all_artifacts_list a {
+   margin:0;
+   padding:0;
+}
+ul.all_artifacts_list li {
+   display:grid;
+   grid-template-columns:1fr 2fr 1fr;
+   align-items:center;
+}
+ul.all_artifacts_list li:nth-child(2n) {
+   background:hsl(0, 0%, 97%);
+}
+ul.all_artifacts_list li:hover {
+   background:hsl(0, 0%, 93%);
 }
 
 .artfact_type {
@@ -186,14 +225,6 @@ h1 {
    padding:.25rem;
    background:hsl(0, 0%, 98%);
    border:solid 1px lightgrey;
-}
-ul.all_artfacts_list {
-   width:fit-content;
-}
-ul.all_artfacts_list li {
-   display:grid;
-   grid-template-columns:2fr 1fr;
-   align-items:center;
 }
 
 

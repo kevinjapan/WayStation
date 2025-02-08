@@ -1,13 +1,29 @@
-<h1>All Comments</h1>
 
 
 <!-- to do : pagination on these all_artifacts views : rollout -->
+
+
+<% # artifact index list %>
 <section>
-   <ul class="all_artfacts_list">
+   <h3 class="grey_text">All Comments</h3>
+   <ul class="all_artifacts_list">
       <% @augmented_comments.each do |comment| %>
-         <li>
-            <%= link_to comment.title, comment %>
-         </li>
+         <%= link_to comment do %>
+            <li>
+               <% if(comment.title.nil?) then  %>
+                  <span>&nbsp;</span>
+               <% else %>
+                  <%=comment.title%>
+               <% end %>
+               <% if(comment.content.nil?) then  %>
+                  <span>&nbsp;</span>
+               <% else %>
+                  <%=comment.content%>
+               <% end %>
+               <!-- to do : make as lib func - rollout all UI dates -->
+               <%= comment.created_at.strftime("%a %-d %b %Y %H:%M") %>
+            </li>
+         <% end %>
       <% end %>
    </ul>
 </section>

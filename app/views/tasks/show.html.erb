@@ -15,39 +15,44 @@
    <div class="border px_1 mb_1 grey_text"> <p><%= @task.desc%></p></div>
 
 
-   <% # artifact child list %>
-   <section class="in_page_artifacts_list">
+   <% # artifact childrens list %>
+   <section>
       <h3 class="grey_text">Todos</h3>
-      <ul>
+      <ul class="in_page_artifacts_list">
          <% @todos.each do |todo| %>
-            <li class="">
 
-               <!-- to do : ongoing - improve - single form for all list (currently form per list item) -->
-              <!--<%= form_with do |form| %>
-                  <%= form.checkbox :done_at %>
-                  <%= form.label :done_at, todo.title %>
-                  <!--<%= link_to todo.title, todo %>
-               <% end %>-->
+            
+            <%= link_to todo do %>
+               <li class="">
 
-               <%= form_with model: todo, class: "flex items_center" do |form| %>
-                  <!--div>
-                     <%= form.label :title %>
-                     <%= form.text_field :title %>
-                  </div-->
-                  <div>
-                  <!-- to do : if done_at filled, mark checkbox value as 1 -->
-                  <!-- to do : currently, all checkboxes on this page named todo[done_at] - need to distinguish? -->
-                     <%= form.checkbox :done_at %> 
+                  <!-- to do : ongoing - improve - single form for all list (currently form per list item) -->
+                  <!--       : if done_at filled, mark checkbox value as 1 -->
+                  <!--       : currently, all checkboxes on this page named todo[done_at] - need to distinguish? -->
+                  <!--       : style update button - or set update on the checkbox itself.. -->
+                  <!--       : form is overriding wrapping link_to action
+               <!--<%= form_with do |form| %>
+                     <%= form.checkbox :done_at %>
                      <%= form.label :done_at, todo.title %>
-                     <%= link_to todo.title, todo %>
-                     <%= todo.done_at %>
-                  </div>
-                  <!-- to do : style update button - or set update on the checkbox itself.. -->
-                  <%= form.submit class: 'inline_block' %>
-               <% end %>
+                     <!--<%= link_to todo.title, todo %>
+                  <% end %>-->
+
+                  <%= form_with model: todo, class: "flex items_center" do |form| %>
+                     <!--div>
+                        <%= form.label :title %>
+                        <%= form.text_field :title %>
+                     </div-->
+                     <div>
+                        <%= form.checkbox :done_at %> 
+                        <%= form.label :done_at, todo.title %>
+                        <%= link_to todo.title, todo %>
+                        <%= todo.done_at %>
+                     </div>
+                     <%= form.submit class: 'inline_block' %>
+                  <% end %>
 
              
-            </li>
+               </li>
+            <% end %>
          <% end %>
       </ul>
       <div class="flex align_end">

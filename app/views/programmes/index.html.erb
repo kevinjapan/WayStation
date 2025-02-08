@@ -1,5 +1,6 @@
 <section>
 
+   <% # artifact bar %>
    <section class="artifact_bar">
       <div>
          <h4 class="light_grey_text">Home</h4>
@@ -7,15 +8,29 @@
       </div>
    </section>
 
-   <section class="in_page_artifacts_list">
+
+   <% # artifact index list %>
+   <section>
       <h3 class="grey_text">Programmes</h3>
-      <ul>
+      <ul class="in_page_artifacts_list">
          <% @programmes.each do |programme| %>
-            <li><%= link_to programme.title, programme %></li>
+            <%= link_to programme do %>
+               <li>
+                  <%= programme.title %>
+                  <% if(programme.desc.nil?) then  %>
+                     <span>&nbsp;</span>
+                  <% else %>
+                     <%=programme.desc%>
+                  <% end %>
+                  <%= programme.created_at.strftime("%a %-d %b %Y %H:%M") %>
+               </li>
+            <% end %>
          <% end %>
       </ul>
       <div class="flex align_end">
          <%= link_to "New programme", new_programme_path, class: "action_link" if authenticated? %>
       </div>
    </section>
+
+
 </section>
