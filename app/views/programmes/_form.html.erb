@@ -1,8 +1,16 @@
+
 <%= form_with model: programme, class: "flex_cols" do |form| %>
 
    <div class="form_row">
-     <%= form.label :title %>
-     <%= form.text_field :title %>
+      <%= form.label :title %>
+
+      <!-- 
+     
+     to do : 'onkeydown' will just keep toggling 'inactive_btn' class - but 'onchange' not working..? 
+               once resolved, rollout all _form.html.erb views
+      
+      -->
+     <%= form.text_field :title, onkeydown: "HelperJS.enable_btn('submit_new_btn')" %>
    </div>
 
    <div class="form_row">
@@ -11,8 +19,8 @@
    </div>
  
    <div class="flex align_end">
-     <%= form.submit %>
-   <%= link_to "Cancel", programmes_path, class:"action_link" %>
+      <%= form.submit id: "submit_new_btn" , class: "inactive_btn" %>
+      <%= link_to "Cancel", programme, class:"action_link " %>
    </div>
    
  <% end %>

@@ -20,7 +20,8 @@
    <section class="flex align_end">    
       <%= button_to "Delete", @comment, method: :delete, class:"action_link" , data: { turbo_confirm: "Are you sure?" } %>
       <%= link_to "Edit", edit_comment_path(@comment, commentable_id:@comment.commentable_id, commentable_type:@comment.commentable_type), class: "action_link" if authenticated? %>  
-   </section>
+      <%= link_to "Cancel", polymorphic_path(@comment.commentable), class: "action_link" %>
+      </section>
    <section>
       <%= link_to "All Comments", comments_path %>
    </section>

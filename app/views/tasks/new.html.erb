@@ -11,6 +11,6 @@
 <section>
    <h1>New task</h1>
    <section>
-      <%= render "form", task: @task %>
+      <%= render partial: "form", locals: { task: @task, cancel_dest: project_path(@project_id) } %>
    </section>
 </section>

@@ -8,7 +8,6 @@
 
 <section>
    <h1>Edit project</h1>
-
-   <%= render "form", project: @project %>
-   <%= link_to "Cancel", @project, class:"action_link" %>
+   <% # Passing Data to form partial with locals Option : %>
+   <%= render partial: "form", locals: { project: @project, cancel_dest: project_path(@project) } %>
 </section>

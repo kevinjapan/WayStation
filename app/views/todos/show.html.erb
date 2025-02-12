@@ -5,11 +5,9 @@
       <div>
          <%= link_to project_path(@project), class: "p_0.25 m_0 no_decor inline_block hover_highlight" do %>
                <h5><span class="grey_text">Project</span> <%= @project.title %></h5>
-            <!/div-->
          <% end %>
          <%= link_to task_path(@task), class: "p_0.25 m_0 no_decor inline_block hover_highlight" do %>
                <h4><span class="grey_text">Task</span> <%= @task.title %></h4>
-            <!/div-->
          <% end %>
          <h1><%= @todo.title %></h1>
          <h3><span class="light_grey_text">id</span> <%= @todo.id %></h3>
@@ -22,7 +20,8 @@
    <% # artifact ctrls %>
    <section class="flex align_end">        
       <%= button_to "Delete", @todo, method: :delete, class:"action_link" , data: { turbo_confirm: "Are you sure?" } %>
-      <%= link_to "Edit", edit_todo_path(@todo, task_id:@task.id) , class: "action_link" if authenticated? %>    
+      <%= link_to "Edit", edit_todo_path(@todo, task_id:@task.id) , class: "action_link" if authenticated? %>
+      <%= link_to "Cancel", @task, class: "action_link" %>
    </section>
 
    <section>

@@ -11,8 +11,12 @@
    </div>
  
    <div class="flex align_end">
+   
       <%= form.submit %>
-      <%= link_to "Cancel", task_path(@task_id), class:"action_link" %>
+
+      <% # data passed from view via locals Option : %> 
+      <%= link_to "Cancel", cancel_dest, class:"action_link" %>
+
    </div>
 
  <% end %>

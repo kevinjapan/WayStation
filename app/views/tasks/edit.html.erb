@@ -10,7 +10,5 @@
 
 <section>
    <h1>Edit task</h1>
-
-   <%= render "form", task: @task %>
-   <%= link_to "Cancel", @task, class:"action_link" %>
+   <%= render partial: "form", locals: { task: @task, cancel_dest: task_path(@task) } %>
 </section>

@@ -10,7 +10,8 @@
    <h1>New project in projects</h1>
 
    <section>
-      <%= render "form", project: @project %>
+      <% # Passing Data to form partial with locals Option : %>
+      <%= render partial: "form", locals: { project: @project, cancel_dest: programme_path(@programme_id) } %>
    </section>
 </section>
 

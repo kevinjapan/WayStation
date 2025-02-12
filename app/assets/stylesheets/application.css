@@ -87,7 +87,7 @@ ul.in_page_artifacts_list {
 }
 ul.in_page_artifacts_list a {
    margin:0;
-   padding:0;
+   padding:.5rem 0;
    cursor:pointer;
 }
 
@@ -95,21 +95,27 @@ ul.in_page_artifacts_list a {
 ul.in_page_artifacts_list li,
 ul.in_page_artifacts_list li > form {   
    display:grid;
-   grid-template-columns:1fr 2fr 1fr;
+   grid-template-columns:.15fr 1fr 2fr 1fr;
    align-items:center;
    cursor:pointer;
    margin:0;
-   padding:0.25rem;
+   padding:0;
+}
+ul.in_page_artifacts_list.todos_list li,
+ul.in_page_artifacts_list.todos_list li > form {   
+   grid-template-columns:.15fr 5fr 1fr 1fr;
 }
 /* if we do inc. form inside list-row, we don't want to duplicate grid display */
 ul.in_page_artifacts_list li:has(form) {display:unset;}
 
 /* to do : do we need to distinguish btwn all_artifacts_list and in_page_artifacts_list ? */
-ul.in_page_artifacts_list li:nth-child(2n) {
+ul.in_page_artifacts_list a:nth-child(2n) {
    background:hsl(0, 0%, 97%);
 }
-ul.in_page_artifacts_list li:hover {
-   background:hsl(0, 0%, 93%);
+
+/*  */
+ul.in_page_artifacts_list a:hover {
+   background:hsl(0, 0%, 94%);
 }
 ul.all_artifacts_list {
    width:fit-content;
@@ -123,11 +129,11 @@ ul.all_artifacts_list li {
    grid-template-columns:1fr 2fr 1fr;
    align-items:center;
 }
-ul.all_artifacts_list li:nth-child(2n) {
-   background:hsl(0, 0%, 97%);
+ul.all_artifacts_list a:nth-child(2n) {
+   background:hsl(0, 0%, 98%);
 }
-ul.all_artifacts_list li:hover {
-   background:hsl(0, 0%, 93%);
+ul.all_artifacts_list a:hover {
+   background:hsl(0, 0%, 96%);
 }
 
 .artfact_type {

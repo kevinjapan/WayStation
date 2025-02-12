@@ -18,10 +18,17 @@
    <% # artifact childrens list %>
    <section>
       <h3 class="grey_text">Todos</h3>
-      <ul class="in_page_artifacts_list">
+      <ul class="in_page_artifacts_list todos_list">
 
          <% @todos.each do |todo| %>
+
+            <!-- - -----------------------------------------------------------
             
+               to do : prevent checkbox activating this containing anchor 
+                       otherwise, we have to limit link_to around title only
+               
+            -------------------------------------------------------------  -->
+            <%= link_to todo do %>
             <li class="">
 
                <%= form_for todo, remote: true do |f| %>
@@ -39,14 +46,17 @@
                      btn_id = "todo_" + todo.id.to_s + "_update_btn"
                   %>
 
-                     <!-- to do : review f.checkbox - args don't seem very robust. -->
+                  <!-- to do : review f.checkbox - args don't seem very robust - or is ruby peculiar arg handling (defaults) tripping me up? -->
                   <div><%= f.checkbox :done_at, { checked: has_done_at, onclick: "HelperJS.enable_btn('#{btn_id}')" } %> </div>
-                  <div><%= link_to todo do %><%= f.label :done_at, todo.title, class: "fit_content" %><% end %></div>
+                  <div><%= f.label :done_at, todo.title, class: "fit_content" %></div>
 
-                  <div><%= f.submit id: btn_id, class: "inactive_btn" %></div>               
+                  <div>&nbsp;</div>
+                  <div><%= f.submit id: btn_id, class: "inactive_btn" %></div>      
+
 
                <% end %>
             </li>
+            <% end %>
 
          <% end %>
       </ul>

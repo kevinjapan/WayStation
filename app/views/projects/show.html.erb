@@ -25,13 +25,14 @@
             
             <%= link_to task do %>
                <li>
-                  <%= task.title %>
+                  <div><!-- checkbox placeholder --></div>
+                  <div><%= task.title %></div>
                   <% if(task.desc.nil?) then  %>
-                     <span>&nbsp;</span>
+                     <div>&nbsp;</div>
                   <% else %>
-                     <%=task.desc%>
+                     <div><%=task.desc%></div>
                   <% end %>
-                  <%= task.created_at.strftime("%a %-d %b %Y %H:%M") %>
+                  <div><%= task.created_at.strftime("%a %-d %b %Y %H:%M") %></div>
                </li>
             <% end %>
 

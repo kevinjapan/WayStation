@@ -14,11 +14,15 @@
      <%= form.label :programme_id %>
      <%= form.text_field :programme_id, value:@programme_id, readonly: true %>
    </div>
-   
 
    <div class="flex align_end">
+
       <%= form.submit %>
-      <%= link_to "Cancel", programme_path(@programme_id), class:"action_link" %>
+
+      <% # data passed from view via locals Option : %> 
+      <%= link_to "Cancel", cancel_dest, class:"action_link" %>
+
    </div>
+
  <% end %>
  

@@ -9,6 +9,10 @@
    </section>
 
 
+   <!-- to do : review console output -
+        calling SELECT "action_text_rich_texts" top many times? necessary? 
+        can do more efficiently? -->
+
    <% # artifact index list %>
    <section>
       <h3 class="grey_text">Programmes</h3>
@@ -16,6 +20,7 @@
          <% @programmes.each do |programme| %>
             <%= link_to programme do %>
                <li>
+                  <div><!-- checkbox placeholder --></div>
                   <%= programme.title %>
                   <% if(programme.desc.nil?) then  %>
                      <span>&nbsp;</span>

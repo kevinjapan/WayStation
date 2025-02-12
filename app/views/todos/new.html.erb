@@ -12,7 +12,7 @@
    <h1>New todo</h1>
 
    <section>
-      <%= render "form", todo: @todo %>
+      <%= render partial: "form", locals: { todo: @todo, cancel_dest: task_path(@task_id) } %>
    </section>
 </section>
 
