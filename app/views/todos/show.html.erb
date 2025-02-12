@@ -13,7 +13,9 @@
          <% end %>
          <h1><%= @todo.title %></h1>
          <h3><span class="light_grey_text">id</span> <%= @todo.id %></h3>
-         <h3><span class="grey_text">done_at</span> <%= @todo.done_at %></h3>
+         <% if (!@todo.done_at.nil?) then %>
+         <h3><span class="grey_text">done_at</span> <%= @todo.done_at.strftime("%a %-d %b %Y %H:%M") %></h3>
+         <% end %>
       </div>
    </section>
 

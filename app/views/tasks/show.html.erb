@@ -19,40 +19,32 @@
    <section>
       <h3 class="grey_text">Todos</h3>
       <ul class="in_page_artifacts_list">
+
          <% @todos.each do |todo| %>
-
             
-            <%= link_to todo do %>
-               <li class="">
+            <li class="">
 
-                  <!-- to do : ongoing - improve - single form for all list (currently form per list item) -->
-                  <!--       : if done_at filled, mark checkbox value as 1 -->
-                  <!--       : currently, all checkboxes on this page named todo[done_at] - need to distinguish? -->
-                  <!--       : style update button - or set update on the checkbox itself.. -->
-                  <!--       : form is overriding wrapping link_to action
-               <!--<%= form_with do |form| %>
-                     <%= form.checkbox :done_at %>
-                     <%= form.label :done_at, todo.title %>
-                     <!--<%= link_to todo.title, todo %>
-                  <% end %>-->
+               <%= form_for todo, remote: true do |f| %>
+                  <!-- don't let this influence container grid -->
+                  <input type="hidden" name="authenticity_token" value={csrf} />
 
-                  <%= form_with model: todo, class: "flex items_center" do |form| %>
-                     <!--div>
-                        <%= form.label :title %>
-                        <%= form.text_field :title %>
-                     </div-->
-                     <div>
-                        <%= form.checkbox :done_at %> 
-                        <%= form.label :done_at, todo.title %>
-                        <%= link_to todo.title, todo %>
-                        <%= todo.done_at %>
-                     </div>
-                     <%= form.submit class: 'inline_block' %>
-                  <% end %>
+                  <!-- to do : set checkbox according to absence/presence of a done_at value -->
+                     <% 
+                     has_done_at = false
+                     if(!todo.done_at.nil?) then 
+                        has_done_at = true
+                      end %>
 
-             
-               </li>
-            <% end %>
+                     <!-- to do : review f.checkbox - args don't seem very robust. -->
+                  <div><%= f.checkbox :done_at, { checked: has_done_at } %> </div>
+                  <div><%= link_to todo do %><%= f.label :done_at, todo.title, class: "fit_content" %><% end %></div>
+
+                  <div><%= f.submit %></div>
+               
+
+               <% end %>
+            </li>
+
          <% end %>
       </ul>
       <div class="flex align_end">

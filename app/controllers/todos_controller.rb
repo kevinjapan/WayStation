@@ -53,9 +53,30 @@ class TodosController < ApplicationController
   
     def update
 
+      # to do : use to find definition of 'magic' methods
+      todo = Todo.first
+      todo.method(:comments).source_location
+      # eg : mixin is a dynamic modulce called Post:: GeneratedAssociationMethods
+      #  dynamically generated methods when you boot; models are then loaded
+      
+      test = ""
+
       @task_id = params[:task_id]
+      now_done_at = ""
+      rcvd_done_at = params[:todo][:done_at]
+      if(rcvd_done_at == "1") then
+         # note- we have to assign to params, todo_params is extracted from this at call to .update below
+         params[:todo][:done_at] = Time.now.strftime("%Y-%m-%d %H:%M")
+      end
+      if(params) then flash[:notice] = "     todo_params: " + todo_params.to_s end
       
       if @todo.update(todo_params)
+
+         # to do : we have two sources -
+         # - full update from Todo update
+         # - partial update from Tasks view
+              
+         # flash[:notice] = "we updated a Todo : " + rcvd_done_at + "::" + now_done_at
         redirect_to @todo
       else
          flash[:notice] = "The todo failed to update " + @todo.inspect
