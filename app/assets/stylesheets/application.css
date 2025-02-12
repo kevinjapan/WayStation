@@ -55,6 +55,10 @@ a {
    margin:.25rem;
    padding:.25rem;
    color:blue;
+   cursor:pointer;
+}
+a label {
+   cursor:pointer;
 }
 a:hover {
    color:purple;
@@ -84,15 +88,22 @@ ul.in_page_artifacts_list {
 ul.in_page_artifacts_list a {
    margin:0;
    padding:0;
+   cursor:pointer;
 }
-ul.in_page_artifacts_list li {   
+
+/* list-row may inc. form (eg todo checkbox) */
+ul.in_page_artifacts_list li,
+ul.in_page_artifacts_list li > form {   
    display:grid;
    grid-template-columns:1fr 2fr 1fr;
    align-items:center;
    cursor:pointer;
    margin:0;
-   padding:.5rem;
+   padding:0.25rem;
 }
+/* if we do inc. form inside list-row, we don't want to duplicate grid display */
+ul.in_page_artifacts_list li:has(form) {display:unset;}
+
 /* to do : do we need to distinguish btwn all_artifacts_list and in_page_artifacts_list ? */
 ul.in_page_artifacts_list li:nth-child(2n) {
    background:hsl(0, 0%, 97%);
@@ -308,4 +319,8 @@ utilities
 
 h4 {
    font-weight:100;
+}
+
+.fit_content {
+   width:fit-content;
 }
