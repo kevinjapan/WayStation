@@ -316,6 +316,7 @@ utilities
 .bg_lightgrey  {background:hsl(0, 0%, 98%);}
 .bg_yellow     {background:yellow;}
 .bg_yellow_100 {background:hsl(60, 100%, 80%);}
+.bg_blue       {background:blue;}
 
 h4 {
    font-weight:100;
@@ -323,4 +324,11 @@ h4 {
 
 .fit_content {
    width:fit-content;
+}
+
+/* HelperJS inactive_btn */
+button.inactive_btn,
+input[type="submit"].inactive_btn {
+   pointer-events: none;
+   color:lightgrey;
 }

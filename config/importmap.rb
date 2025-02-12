@@ -7,3 +7,7 @@ pin "@hotwired/stimulus-loading", to: "stimulus-loading.js"
 pin_all_from "app/javascript/controllers", under: "controllers"
 pin "trix"
 pin "@rails/actiontext", to: "actiontext.esm.js"
+
+
+# add HelperJS custom lib for enabling btns etc.
+pin "helper_js" #, preload: true

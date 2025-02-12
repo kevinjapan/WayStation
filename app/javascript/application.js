@@ -4,3 +4,9 @@ import "controllers"
 
 import "trix"
 import "@rails/actiontext"
+
+
+// our HelperJS custom lib
+import * as HelperJS from "/helper_js.js"
+export { HelperJS }
+window.HelperJS = HelperJS
