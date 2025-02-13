@@ -4,25 +4,8 @@ class CommentsController < ApplicationController
    before_action :set_commentable_data, only: %i[ new edit update ]
 
    def index
-      
       @comments = Comment.all
-
-      # to do : can we inc. link to commentable parent?
-      # @augmented_comments = []
-      # the_augmented_comments = []
-
-      # create list augmented w/ project.title
-      # @comments.each do |comment|
-      #    my_programme = Programme.find(comment.programme_id)
-      #    augmented_comment = [comment,my_programme]
-      #    the_augmented_comments.push(augmented_comment)
-      # end
-
-
-      # sort by comment and project title
-      # @augmented_comments = the_augmented_comments.sort_by { |comment, programme| [programme.title, project.title] }
       @augmented_comments = @comments.sort_by{ |comment| [comment.title] }
-
    end
 
    def show
