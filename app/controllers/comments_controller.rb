@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
    
    before_action :set_comment, only: %i[ show edit update destroy ]
-   before_action :set_commentable_data, only: %i[ new edit update ]
+   before_action :set_commentable_data, only: %i[ new edit update destroy ]
 
    def index
       @comments = Comment.all
@@ -32,16 +32,7 @@ class CommentsController < ApplicationController
       end
    end
 
-   # to do : complete edit|update functionality
-   def edit
-      # @commentable_id | @commentable_type from set_commentable_data
-      flash[:notice] =  @commentable_id.to_s + " -- " + @commentable_type
-      # example:
-      # @task_id = params[:task_id]
-      # @task = Task.find(@task_id)
-      # @project = Project.find(@task.project_id)
-
-      # we are passing @comment 
+   def edit    
       # pass ActionRecord (of type 'commentable_type') we are adding the comment to
       type = @commentable_type
       @commentable = type.constantize.find(@commentable_id)
@@ -57,9 +48,11 @@ class CommentsController < ApplicationController
    end
 
    def destroy
+      type = @commentable_type
+      @commentable = type.constantize.find(@commentable_id)
       @comment.destroy
       # to do : back to commentable..
-      redirect_to projects_path
+      redirect_to(@commentable)
    end
 
    private
