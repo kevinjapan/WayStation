@@ -15,20 +15,16 @@
    <div class="border px_1 mb_1 grey_text"> <p><%= @task.desc%></p></div>
 
 
-   <% # artifact childrens list %>
+   <% 
+   # artifact childrens list 
+   # contains ctrls, so we limit Todo link to title only
+   %>
    <section>
       <h3 class="grey_text">Todos</h3>
       <ul class="in_page_artifacts_list todos_list">
 
          <% @todos.each do |todo| %>
 
-            <!-- - -----------------------------------------------------------
-            
-               to do : prevent checkbox activating this containing anchor 
-                       otherwise, we have to limit link_to around title only
-               
-            -------------------------------------------------------------  -->
-            <%= link_to todo do %>
             <li class="">
 
                <%= form_for todo, remote: true do |f| %>
@@ -47,13 +43,14 @@
                   %>
 
                   <div><%= f.checkbox :done_at, { checked: has_done_at, onclick: "HelperJS.enable_btn('#{btn_id}')" } %> </div>
-                  <div><%= f.label :done_at, todo.title, class: "fit_content" %></div>
+                  <%= link_to todo do %>
+                     <div><%= f.label :done_at, todo.title, class: "fit_content" %></div>
+                  <% end %>
 
                   <div>&nbsp;</div>
                   <div><%= f.submit id: btn_id, class: "inactive_btn" %></div>      
 
 
-               <% end %>
             </li>
             <% end %>
 
