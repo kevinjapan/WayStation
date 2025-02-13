@@ -33,6 +33,7 @@ class CommentsController < ApplicationController
       # @commentable_id | @commentable_type from set_commentable_data
 
       @comment = Comment.new
+
       # pass ActionRecord (of type 'commentable_type') we are adding the comment to
       type = @commentable_type
       @commentable = type.constantize.find(@commentable_id)
@@ -50,6 +51,17 @@ class CommentsController < ApplicationController
 
    # to do : complete edit|update functionality
    def edit
+      # @commentable_id | @commentable_type from set_commentable_data
+      flash[:notice] =  @commentable_id.to_s + " -- " + @commentable_type
+      # example:
+      # @task_id = params[:task_id]
+      # @task = Task.find(@task_id)
+      # @project = Project.find(@task.project_id)
+
+      # we are passing @comment 
+      # pass ActionRecord (of type 'commentable_type') we are adding the comment to
+      type = @commentable_type
+      @commentable = type.constantize.find(@commentable_id)
    end
 
    def update

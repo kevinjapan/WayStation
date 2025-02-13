@@ -32,7 +32,8 @@
 
 
    <% # artifact comments %>
-   <%= render partial: "comments", locals: {  } %>
+   <!% # we need to inc. 'partial' keyword to get the locals to work here.. %>
+   <%= render partial: '/shared/comments', locals: { commentable_id: @todo.id, commentable_type: 'Todo'}  %>
   
 
 </section>

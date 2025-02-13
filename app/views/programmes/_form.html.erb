@@ -3,13 +3,6 @@
 
    <div class="form_row">
       <%= form.label :title %>
-
-      <!-- 
-     
-     to do : 'onkeydown' will just keep toggling 'inactive_btn' class - but 'onchange' not working..? 
-               once resolved, rollout all _form.html.erb views
-      
-      -->
      <%= form.text_field :title, onkeydown: "HelperJS.enable_btn('submit_new_btn')" %>
    </div>
 

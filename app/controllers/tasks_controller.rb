@@ -59,6 +59,7 @@ class TasksController < ApplicationController
     def update
       @project_id = params[:project_id]
       if @task.update(task_params)
+         flash[:notice] = "we updated a Task"
         redirect_to @task
       else
          flash[:notice] = "The task failed to update " + @task.inspect

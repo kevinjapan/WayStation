@@ -1,7 +1,7 @@
 
 
-
 <section>
+comments\_comments.html.erb
    <ul>
       <% @comments.each do |comment| %>
          <li class="card">
@@ -10,8 +10,7 @@
          </li>
       <% end %>
       <div class="flex align_end">
-      <%= link_to "New comment", new_comment_path(commentable_id:@todo.id, commentable_type:"Todo") , class: "action_link"  if authenticated? %>
+         <%= link_to "New comment", new_comment_path(commentable_id:commentable_id, commentable_type:commentable_type) , class: "action_link"  if authenticated? %>
       </div>
-
-   </ul>
+   <ul>
 </section>

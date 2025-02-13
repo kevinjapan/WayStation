@@ -1,2 +1,11 @@
-<h1>Comments#edit</h1>
-<p>Find me in app/views/comments/edit.html.erb</p>
+
+<!-- 
+to do : align for comment (see eg project.edit.html.erb
+-->
+
+<section>
+   <h1>Edit comment</h1>
+   <% # Passing Data to form partial with locals Option : %>
+   <% # to do : align cancel_dest correctly to commentable client : eg :  add ", cancel_dest: commentable_path(@commentable)" below  %>
+   <%= render partial: "form", locals: { comment: @comment, cancel_dest: projects_path() } %>
+</section>

@@ -46,7 +46,6 @@
                      btn_id = "todo_" + todo.id.to_s + "_update_btn"
                   %>
 
-                  <!-- to do : review f.checkbox - args don't seem very robust - or is ruby peculiar arg handling (defaults) tripping me up? -->
                   <div><%= f.checkbox :done_at, { checked: has_done_at, onclick: "HelperJS.enable_btn('#{btn_id}')" } %> </div>
                   <div><%= f.label :done_at, todo.title, class: "fit_content" %></div>
 
@@ -78,7 +77,8 @@
    
 
    <% # artifact comments %>
-   <%= render partial: "comments", locals: {  } %>
+   <!% # we need to inc. 'partial' keyword to get the locals to work here.. %>
+   <%= render partial: '/shared/comments', locals: { commentable_id: @task.id, commentable_type: 'Task'}  %>
 
 
 </section>
