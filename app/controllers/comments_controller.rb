@@ -51,7 +51,6 @@ class CommentsController < ApplicationController
       type = @commentable_type
       @commentable = type.constantize.find(@commentable_id)
       @comment.destroy
-      # to do : back to commentable..
       redirect_to(@commentable)
    end
 
