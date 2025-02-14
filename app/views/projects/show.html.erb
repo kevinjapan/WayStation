@@ -13,8 +13,8 @@
    </section>
    
 
-   <% # artifact desc %>
-   <div class="border px_1 mb_1 grey_text"> <p><%= @project.desc%></p></div>
+   <% # artifact tagline %>
+   <div class="border px_1 mb_1 grey_text"> <p><%= @project.tagline%></p></div>
 
    
    <% # artifact childrens list %>
@@ -27,10 +27,10 @@
                <li>
                   <div><!-- checkbox placeholder --></div>
                   <div><%= task.title %></div>
-                  <% if(task.desc.nil?) then  %>
+                  <% if(task.tagline.nil?) then  %>
                      <div>&nbsp;</div>
                   <% else %>
-                     <div><%=task.desc%></div>
+                     <div><%=task.tagline%></div>
                   <% end %>
                   <div><%= task.created_at.strftime("%a %-d %b %Y %H:%M") %></div>
                </li>

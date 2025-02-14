@@ -59,7 +59,7 @@ class ProgrammesController < ApplicationController
 
       # permitted parameters
       def programme_params
-         params.expect(programme: [ :title, :desc ])
+         params.expect(programme: [ :title, :tagline ])
       end
 
 

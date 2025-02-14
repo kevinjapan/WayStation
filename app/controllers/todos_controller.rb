@@ -43,15 +43,21 @@ class TodosController < ApplicationController
       else
         render :new, status: :unprocessable_entity
       end
-    end
+   end
   
-    def edit
+   def edit
       @task_id = params[:task_id]
       @task = Task.find(@task_id)
       @project = Project.find(@task.project_id)
-    end
+   end
   
-    def update
+    
+   # update
+   # we have two sources :
+   # - full update from Todo update
+   # - partial update from Tasks view
+   
+   def update
 
       # to do : use to find definition of 'magic' methods
       todo = Todo.first
@@ -71,18 +77,12 @@ class TodosController < ApplicationController
       if(params) then flash[:notice] = "     todo_params: " + todo_params.to_s end
       
       if @todo.update(todo_params)
-
-         # to do : we have two sources -
-         # - full update from Todo update
-         # - partial update from Tasks view
-              
-         # flash[:notice] = "we updated a Todo : " + rcvd_done_at + "::" + now_done_at
-        redirect_to @todo
+         redirect_to @todo
       else
          flash[:notice] = "The todo failed to update " + @todo.inspect
-        render :edit, status: :unprocessable_entity
+         render :edit, status: :unprocessable_entity
       end
-    end
+   end
  
     def destroy
       @todo.destroy

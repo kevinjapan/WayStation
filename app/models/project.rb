@@ -6,8 +6,6 @@ class Project < ApplicationRecord
    belongs_to :programme
    
    has_many :comments, as: :commentable
-
-   has_rich_text :desc
    
    # ensure all Projects have a title
    validates :title, presence: true

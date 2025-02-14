@@ -79,7 +79,7 @@ class TasksController < ApplicationController
       end
 
       def task_params
-        params.expect(task: [ :title, :project_id, :desc ])
+        params.expect(task: [ :title, :project_id, :tagline ])
       end
 
 

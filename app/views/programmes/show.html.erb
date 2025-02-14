@@ -11,8 +11,8 @@
    </section>
 
 
-   <% # artifact desc %>
-   <p><%= @programme.desc%></p>   
+   <% # artifact tagline %>
+   <p><%= @programme.tagline%></p>   
 
 
    <!--<%= link_to "New project", new_project_path(programme_id:@programme.id) if authenticated? %>-->
@@ -28,10 +28,10 @@
                <li>
                   <div><!-- checkbox placeholder --></div>
                   <%= project.title %>
-                  <% if(project.desc.nil?) then  %>
+                  <% if(project.tagline.nil?) then  %>
                      <span>&nbsp;</span>
                   <% else %>
-                     <%=project.desc%>
+                     <span><%=project.tagline%></span>
                   <% end %>
                   <%= project.created_at.strftime("%a %-d %b %Y %H:%M") %>
                </li>

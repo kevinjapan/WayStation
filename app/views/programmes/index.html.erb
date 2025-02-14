@@ -8,10 +8,11 @@
       </div>
    </section>
 
-
-   <!-- to do : review console output -
-        calling SELECT "action_text_rich_texts" top many times? necessary? 
-        can do more efficiently? -->
+   <%
+   # to do :  review console output -
+   #         calling SELECT "action_text_rich_texts" too many times? necessary? 
+   #         can do more efficiently? 
+   %>
 
    <% # artifact index list %>
    <section>
@@ -22,10 +23,10 @@
                <li>
                   <div><!-- checkbox placeholder --></div>
                   <%= programme.title %>
-                  <% if(programme.desc.nil?) then  %>
+                  <% if(programme.tagline.nil? || programme.tagline == "") then  %>
                      <span>&nbsp;</span>
                   <% else %>
-                     <%=programme.desc%>
+                     <span><%=programme.tagline%></span>
                   <% end %>
                   <%= programme.created_at.strftime("%a %-d %b %Y %H:%M") %>
                </li>

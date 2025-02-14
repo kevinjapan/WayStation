@@ -4,8 +4,6 @@ class Todo < ApplicationRecord
 
    has_many :comments, as: :commentable
 
-   has_rich_text :desc
-   
    # ensure all Todos have a title
    validates :title, presence: true
 
