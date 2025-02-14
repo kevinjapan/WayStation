@@ -19,7 +19,14 @@
 
    <% # artifact ctrls %>
    <section class="flex align_end">        
-      <%= button_to "Delete", @todo, method: :delete, class:"action_link" , data: { turbo_confirm: "Are you sure?" } %>
+      <%= button_to(
+            "Delete", 
+            @todo, 
+            method: :delete, 
+            class:"action_link" , 
+            data: { turbo_confirm: "Are you sure you want to delete this Todo?" } 
+         )
+      %>
       <%= link_to "Edit", edit_todo_path(@todo, task_id:@task.id) , class: "action_link" if authenticated? %>
       <%= link_to "Cancel", @task, class: "action_link" %>
    </section>

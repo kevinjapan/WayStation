@@ -47,7 +47,13 @@
 
    <% # artifact ctrls %>
    <section class="flex align_end">
-      <%= button_to "Delete", @programme, method: :delete, class:"action_link" , data: { turbo_confirm: "Are you sure?" } %>
+      <%= button_to(
+            "Delete", @programme, 
+            method: :delete, 
+            class:"action_link" , 
+            data: { turbo_confirm: "Are you sure you want to delete this entire programme?" }
+         )
+      %>
       <%= link_to "Edit", edit_programme_path(@programme) , class: "action_link" if authenticated? %>
    </section>
    <section>
