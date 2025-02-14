@@ -56,12 +56,11 @@ class TodosController < ApplicationController
    # we have two sources :
    # - full update from Todo update
    # - partial update from Tasks view
-   
    def update
 
-      # to do : use to find definition of 'magic' methods
-      todo = Todo.first
-      todo.method(:comments).source_location
+      # future : use to find definition of 'magic' methods
+      # todo = Todo.first
+      # todo.method(:comments).source_location
       # eg : mixin is a dynamic modulce called Post:: GeneratedAssociationMethods
       #  dynamically generated methods when you boot; models are then loaded
       

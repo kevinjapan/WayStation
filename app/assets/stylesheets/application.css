@@ -77,7 +77,7 @@ ul {
    gap:.5rem;
    list-style:none;
 }
-/* to do : should be ul also? */
+
 ul.in_page_artifacts_list {
    /* margin:0; */
    padding:.25rem .5rem;
@@ -105,10 +105,10 @@ ul.in_page_artifacts_list.todos_list li,
 ul.in_page_artifacts_list.todos_list li > form {   
    grid-template-columns:.15fr 5fr 1fr 1fr;
 }
-/* if we do inc. form inside list-row, we don't want to duplicate grid display */
+/* if we do inc. a form inside list-row, don't duplicate the grid display in containing li */
 ul.in_page_artifacts_list li:has(form) {display:unset;}
 
-/* to do : do we need to distinguish btwn all_artifacts_list and in_page_artifacts_list ? */
+
 ul.in_page_artifacts_list a:nth-child(2n) {
    background:hsl(0, 0%, 97%);
 }
