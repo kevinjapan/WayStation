@@ -20,13 +20,16 @@
    <%# Includes all stylesheet files in app/assets/stylesheets %>
    <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
    <%= javascript_importmap_tags %>
+
 </head>
+
    <body>
+
       <nav class="flex items_center">
          <%= link_to "Home", root_path %>
+         <!-- to do : log out contains form - so we need some class to kill padding/border etc -->
          <%= button_to "Log out", session_path, method: :delete, class:"action_link"  if authenticated? %>
          <%= link_to "Login", new_session_path unless authenticated? %>
-
       </nav>
 
       <!-- display any controller-generated flash messages -->
@@ -37,5 +40,7 @@
       <main>
          <%= yield %>
       </main>
+
    </body>
+
 </html>

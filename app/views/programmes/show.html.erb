@@ -7,12 +7,12 @@
             <h4><span class="light_grey_text">Programmes</span></h4>
          <% end %>
          <h1><span class="light_grey_text">Programme</span> <%= @programme.title %></h1>
+
+         <% # artifact tagline %>
+         <div class="artifact_tagline"><%= @programme.tagline%></div>
       </div>
    </section>
-
-
-   <% # artifact tagline %>
-   <p><%= @programme.tagline%></p>   
+  
 
 
    <!--<%= link_to "New project", new_project_path(programme_id:@programme.id) if authenticated? %>-->

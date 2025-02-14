@@ -9,12 +9,14 @@
          <% end %>
          <h1><span class="light_grey_text">Project</span> <%= @project.title %></h1>
          <!--h3><span class="light_grey_text">id</span> <%= @project.id %></h3-->
+
+         <% # artifact tagline %>
+         <div class="artifact_tagline"><%= @project.tagline%></div>
+
       </div>
    </section>
    
 
-   <% # artifact tagline %>
-   <div class="border px_1 mb_1 grey_text"> <p><%= @project.tagline%></p></div>
 
    
    <% # artifact childrens list %>

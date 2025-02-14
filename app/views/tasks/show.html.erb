@@ -8,12 +8,12 @@
          <% end %>
          <h1><span class="light_grey_text">Task</span> <%= @task.title %></h1>
          <!--h3><span class="light_grey_text">id</span> <%= @task.id %></h3-->
+         
+         <% # artifact tagline %>
+         <div class="artifact_tagline"><%= @task.tagline%></div>
+
       </div>
    </section>
-         
-   <% # artifact tagline %>
-   <div class="border px_1 mb_1 grey_text"> <p><%= @task.:tagline%></p></div>
-
 
    <% 
    # artifact childrens list 
@@ -25,7 +25,7 @@
 
          <% @todos.each do |todo| %>
 
-            <li class="">
+            <li class="contains_inline_form">
 
                <%= form_for todo, remote: true do |f| %>
                   <!-- don't let this influence container grid -->

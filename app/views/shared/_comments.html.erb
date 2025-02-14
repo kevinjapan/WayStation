@@ -1,6 +1,7 @@
 
 
-<section>
+<section class="comment_section">
+   <h3 class="grey_text mb_1">Comments</h3>
    <ul>
       <% @comments.each do |comment| %>
          <li class="card">
@@ -8,8 +9,8 @@
             <div class="card_content"><%= comment.content %></div>
          </li>
       <% end %>
-      <div class="flex align_end">
-         <%= link_to "New comment", new_comment_path(commentable_id:commentable_id, commentable_type:commentable_type) , class: "action_link"  if authenticated? %>
-      </div>
    <ul>
+   <div class="flex align_end">
+      <%= link_to "New comment", new_comment_path(commentable_id:commentable_id, commentable_type:commentable_type) , class: "action_link"  if authenticated? %>
+   </div>
 </section>
