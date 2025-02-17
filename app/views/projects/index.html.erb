@@ -9,10 +9,12 @@
                <span class="grey_text">programme :  </span>
                <%= link_to programme.title, programme %>
 
-               
-               <div>user: <%= project.users.distinct.pluck(:email_address) %></div>
-               <div>creator: <%= project.creators.distinct.pluck(:email_address) %></div>
-
+               <% if(project.creators.length > 0) then %>
+                  <div>creator: <%= project.creators.distinct.pluck(:name) %></div>
+               <% end %>
+               <% if(project.users.length > 0) then %>
+                  <div>users: <%= project.users.distinct.pluck(:name) %></div>
+               <% end %>
 
             </span>
          </li>

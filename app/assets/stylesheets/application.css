@@ -97,7 +97,7 @@ ul.in_page_artifacts_list a {
 ul.in_page_artifacts_list li,
 ul.in_page_artifacts_list li > form {   
    display:grid;
-   grid-template-columns:.15fr 1fr 2fr 1fr;
+   grid-template-columns:.15fr 1fr 2fr 1fr 1fr 1fr;
    align-items:center;
    cursor:pointer;
    margin:0;
@@ -105,7 +105,7 @@ ul.in_page_artifacts_list li > form {
 }
 ul.in_page_artifacts_list.todos_list li,
 ul.in_page_artifacts_list.todos_list li > form {   
-   grid-template-columns:.15fr 5fr 1fr 1fr;
+   grid-template-columns:.15fr 5fr 1fr 1fr 1fr 1fr;
 }
 /* if we do inc. a form inside list-row, don't duplicate the grid display in containing li */
 ul.in_page_artifacts_list li:has(form) {display:unset;}
@@ -128,7 +128,7 @@ ul.all_artifacts_list a {
 }
 ul.all_artifacts_list li {
    display:grid;
-   grid-template-columns:1fr 2fr 1fr;
+   grid-template-columns:1fr 2fr 1fr 1fr;
    align-items:center;
 }
 ul.all_artifacts_list a:nth-child(2n) {

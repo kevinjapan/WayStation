@@ -17,16 +17,32 @@
             <%= link_to programme do %>
                <li>
                   <div><!-- checkbox placeholder --></div>
-                  <%= programme.title %>
+
+                  <div><%= programme.title %></div>
                   <% if(programme.tagline.nil? || programme.tagline == "") then  %>
-                     <span>&nbsp;</span>
+                     <div>&nbsp;</div>
                   <% else %>
-                     <span><%=programme.tagline%></span>
+                     <div><%=programme.tagline%></div>
                   <% end %>
-                  <%= programme.created_at.strftime("%a %-d %b %Y %H:%M") %>
+
+                  <div><%= programme.created_at.strftime("%a %-d %b %Y %H:%M") %></div>
                   
-                  <div>user: <%= programme.users.distinct.pluck(:email_address) %></div>
-                  <div>creator: <%= programme.creators.distinct.pluck(:email_address) %></div>
+                  <% # to do : move to shared partial : rollout : need to pass link resolution data.. %>
+                  <% if(programme.creators.length > 0) then %>
+                     <ul> 
+                        <% programme.creators.distinct.pluck(:name,:id).each do |name, id| %>
+                           <li><%= link_to name, user_path(id) %></li>
+                        <% end %>
+                     </ul>
+                  <% end %>
+                  
+                  <% if(programme.users.length > 0) then %>
+                     <ul class="flex flex_col"> 
+                        <% programme.users.distinct.pluck(:name).each do |name| %>
+                           <li>[<%=name%>]</li>
+                        <% end %>
+                     </ul>
+                  <% end %>
 
                </li>
             <% end %>

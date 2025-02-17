@@ -35,6 +35,22 @@
                      <div><%=task.tagline%></div>
                   <% end %>
                   <div><%= task.created_at.strftime("%a %-d %b %Y %H:%M") %></div>
+                  
+                  <% if(task.creators.length > 0) then %>
+                     <ul> 
+                        <% task.creators.distinct.pluck(:name).each do |name| %>
+                           <li>[<%=name%>]</li>
+                        <% end %>
+                     </ul>
+                  <% end %>
+                  <% if(task.users.length > 0) then %>
+                     <ul class="flex flex_col"> 
+                        <% task.users.distinct.pluck(:name).each do |name| %>
+                           <li>[<%=name%>]</li>
+                        <% end %>
+                     </ul>
+                  <% end %>
+
                </li>
             <% end %>
 

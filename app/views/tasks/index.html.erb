@@ -1,8 +1,13 @@
 <h1>All Tasks</h1>
 
+<% # to do : nav is not showing user.name correctly ? %>
 <section>
    <ul class="all_artifacts_list">
       <% @augmented_tasks.each do |task,project| %>
+
+         <%
+         users_list = task.users
+         %>
          <li>
             <%= link_to task.title, task %>
             <span class="parent_token">
@@ -10,8 +15,12 @@
                <%= link_to project.title, project %>
             </span>
             
-            <div>user: <%= task.users.distinct.pluck(:email_address) %></div>
-            <div>creator: <%= task.creators.distinct.pluck(:email_address) %></div>
+            <% if(task.creators.length > 0) then %>
+               <div>creator: <%= task.creators.distinct.pluck(:name) %></div>
+            <% end %>
+            <% if(task.users.length > 0) then %>
+               <div>users: <%= task.users.distinct.pluck(:name) %></div>
+            <% end %>
 
 
          </li>

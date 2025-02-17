@@ -4,8 +4,9 @@
 
    <li>
    <%= user.email_address %>
-   <%= user.roles.pluck(:name) %>
+   <%= user.roles.distinct.pluck(:name) %>
    <%= link_to 'edit roles', edit_user_path(user) %>)
+   todos: <%= user.todos.pluck(:id) %>
    comments: <%= user.comments.pluck(:id) %>
    creator: <%= user.creator_comments.pluck(:id) %>
    </li>

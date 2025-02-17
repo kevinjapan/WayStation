@@ -34,6 +34,22 @@
                      <span><%=project.tagline%></span>
                   <% end %>
                   <%= project.created_at.strftime("%a %-d %b %Y %H:%M") %>
+
+                  <% if(project.creators.length > 0) then %>
+                     <ul> 
+                        <% project.creators.distinct.pluck(:name).each do |name| %>
+                           <li>[<%=name%>]</li>
+                        <% end %>
+                     </ul>
+                  <% end %>
+                  <% if(project.users.length > 0) then %>
+                     <ul class="flex flex_col"> 
+                        <% project.users.distinct.pluck(:name).each do |name| %>
+                           <li>[<%=name%>]</li>
+                        <% end %>
+                     </ul>
+                  <% end %>
+
                </li>
             <% end %>
          

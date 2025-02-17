@@ -1,6 +1,16 @@
 
+<%
+# to do : review
+# current, no use - it lists every single relationship! - 
+# we might want to view eg user.comments | user.todos | etc..   separately
+%>
+<ul>
 <%= form_with(model: @user) do |form| %>
-   <%= form.collection_check_boxes :role_ids, Role.all, :id, :name %>
-   <%= @user.errors[:roles] %>
-   <%= form.button :submit %>
+   <li class="flex">
+   <% # to do : need to inject <li> into the collection_check_boxes helper:  %>
+      <%= form.collection_check_boxes :role_ids, Role.all, :id, :name %>
+      <%= @user.errors[:roles] %>
+      <%= form.button :submit %>
+   </li>
 <% end %>
+</ul>

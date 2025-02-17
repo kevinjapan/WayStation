@@ -10,10 +10,12 @@
                <%= link_to task.title, task %>
             </span>
 
-            <div>user: <%= todo.users.distinct.pluck(:email_address) %></div>
-            <div>creator: <%= todo.creators.distinct.pluck(:email_address) %></div>
-
-            
+            <% if(todo.creators.length > 0) then %>
+               <div>creator: <%= todo.creators.distinct.pluck(:name) %></div>
+            <% end %>
+            <% if(todo.users.length > 0) then %>
+               <div>users: <%= todo.users.distinct.pluck(:name) %></div>
+            <% end %>
 
          </li>
       <% end %>

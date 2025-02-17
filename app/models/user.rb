@@ -27,6 +27,7 @@ class User < ApplicationRecord
 
 
   after_create :assign_default_role
+  
   validate :must_have_a_role, on: :update
 
   normalizes :email_address, with: ->(e) { e.strip.downcase }

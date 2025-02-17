@@ -47,7 +47,21 @@
                      <div><%= f.label :done_at, todo.title, class: "fit_content" %></div>
                   <% end %>
 
-                  <div>&nbsp;</div>
+                  <% if(todo.creators.length > 0) then %>
+                     <ul> 
+                        <% todo.creators.distinct.pluck(:name).each do |name| %>
+                           <li>[<%=name%>]</li>
+                        <% end %>
+                     </ul>
+                  <% end %>
+                  <% if(todo.users.length > 0) then %>
+                     <ul class="flex flex_col"> 
+                        <% todo.users.distinct.pluck(:name).each do |name| %>
+                           <li>[<%=name%>]</li>
+                        <% end %>
+                     </ul>
+                  <% end %>
+
                   <div><%= f.submit id: btn_id, class: "inactive_btn" %></div>      
 
 
