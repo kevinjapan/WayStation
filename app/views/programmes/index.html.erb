@@ -9,7 +9,10 @@
    </section>
 
    
-   <% # artifact index list %>
+   <% 
+   # artifact index list 
+   # we can't next .each do w/out breaking link_to structure, so we don't inc. links to users in these line items
+   %>
    <section>
       <h3 class="grey_text">Programmes</h3>
       <ul class="in_page_artifacts_list">
@@ -17,31 +20,22 @@
             <%= link_to programme do %>
                <li>
                   <div><!-- checkbox placeholder --></div>
-
-                  <div><%= programme.title %></div>
+                  <%= programme.title %>
                   <% if(programme.tagline.nil? || programme.tagline == "") then  %>
-                     <div>&nbsp;</div>
+                     <span>&nbsp;</span>
                   <% else %>
-                     <div><%=programme.tagline%></div>
+                     <span><%=programme.tagline%></span>
                   <% end %>
-
-                  <div><%= programme.created_at.strftime("%a %-d %b %Y %H:%M") %></div>
+                  <%= programme.created_at.strftime("%a %-d %b %Y %H:%M") %>
                   
-                  <% # to do : move to shared partial : rollout : need to pass link resolution data.. %>
+                  <% # to do : tidy display - but we can't do a ''.each do' here - it messes w/ containing ''.each do' %>
                   <% if(programme.creators.length > 0) then %>
-                     <ul> 
-                        <% programme.creators.distinct.pluck(:name,:id).each do |name, id| %>
-                           <li><%= link_to name, user_path(id) %></li>
-                        <% end %>
-                     </ul>
+                     <div> 
+                        <%= programme.creators.distinct.pluck(:name) %>
+                     </div>
                   <% end %>
-                  
                   <% if(programme.users.length > 0) then %>
-                     <ul class="flex flex_col"> 
-                        <% programme.users.distinct.pluck(:name).each do |name| %>
-                           <li>[<%=name%>]</li>
-                        <% end %>
-                     </ul>
+                     <div><%= programme.users.distinct.pluck(:name) %></div>
                   <% end %>
 
                </li>

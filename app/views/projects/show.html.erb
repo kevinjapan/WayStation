@@ -81,6 +81,27 @@
    </section>
    
 
+   <% # artifact assoc. users %>
+   <% # to do : shared partial? %>
+   <section>
+      <h3>creators</h3>
+      <% if(@project.creators.length > 0) then %>
+         <div> 
+            <% @project.creators.distinct.pluck(:id,:name).each do |id,name| %>
+               <%= link_to name, user_path(id) %>
+            <% end %>
+         </div>
+      <% end %>
+      <h3>users</h3>
+      <% if(@project.users.length > 0) then %>
+            <% @project.users.distinct.pluck(:id,:name).each do |id,name| %>
+               <%= link_to name, user_path(id) %>
+            <% end %>         
+         </div>
+      <% end %>
+   <section>
+
+
    <% # artifact comments %>
    <!% # we need to inc. 'partial' keyword to get the locals to work here.. %>
    <%= render partial: '/shared/comments', locals: { commentable_id: @project.id, commentable_type: 'Project'}  %>
