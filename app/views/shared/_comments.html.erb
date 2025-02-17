@@ -5,7 +5,14 @@
    <ul>
       <% @comments.each do |comment| %>
          <li class="card">
-            <div class="card_title_bar"><%= link_to comment.title, comment %></div>
+            <div class="card_title_bar">
+               <% if(Current.user.has_role?(:creator, comment)) then %>
+                  <%= link_to comment.title, comment %>
+               <% else %>
+                  <%= comment.title %>
+               <% end %>
+               <%= comment.creators.distinct.pluck(:email_address) %>
+            </div>
             <div class="card_content"><%= comment.content %></div>
          </li>
       <% end %>
