@@ -1,0 +1,14 @@
+
+<ul>
+<% @users.each do |user| %>
+
+   <li>
+   <%= user.email_address %>
+   <%= user.roles.pluck(:name) %>
+   <%= link_to 'edit roles', edit_user_path(user) %>)
+   comments: <%= user.comments.pluck(:id) %>
+   creator: <%= user.creator_comments.pluck(:id) %>
+   </li>
+
+<% end %>
+</ul>

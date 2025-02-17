@@ -22,7 +22,12 @@
                <% end %>
                <!-- future : make as lib func - rollout all UI dates -->
                <%= comment.created_at.strftime("%a %-d %b %Y %H:%M") %>
-            </li>
+
+               
+               <div>user: <%= comment.users.distinct.pluck(:email_address) %></div>
+               <div>creator: <%= comment.creators.distinct.pluck(:email_address) %></div>
+
+               </li>
          <% end %>
       <% end %>
    </ul>

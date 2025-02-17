@@ -33,6 +33,8 @@ Rails.application.routes.draw do
   
   resources :comments
 
+  resources :users
+
   # Defines the root path route ("/")
   root "programmes#index"
 end

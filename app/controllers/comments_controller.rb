@@ -23,8 +23,14 @@ class CommentsController < ApplicationController
    end
 
    def create
+
+      # assign :creator role to user
       @comment = Comment.new(comment_params)
       if @comment.save
+
+         # rolify
+         Current.user.add_role :creator, @comment
+
          redirect_to @comment.commentable
       else
          flash[:notice] = "The comment was not created " + @comment.inspect

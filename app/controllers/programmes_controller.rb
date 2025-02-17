@@ -5,6 +5,9 @@ class ProgrammesController < ApplicationController
    before_action :set_programme, only: %i[ show edit update destroy ]
 
    def index
+
+      # to do : Current model is not being populated..?
+      flash[:notice] = Current.user
       @programmes = Programme.all
    end
 

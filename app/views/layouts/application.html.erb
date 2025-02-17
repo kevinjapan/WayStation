@@ -30,6 +30,17 @@
          <!-- to do : log out contains form - so we need some class to kill padding/border etc -->
          <%= button_to "Log out", session_path, method: :delete, class:"action_link"  if authenticated? %>
          <%= link_to "Login", new_session_path unless authenticated? %>
+
+
+         <% if Current.user %>
+        [admin:<%= Current.user.has_role? :admin %>]
+        <%= # Current.user.roles -  gives an Association - we want names: ..
+        %>
+        <%= Current.user.roles.pluck(:name) %>
+            <div class="m_1">we have a user: <%= Current.user.id %></div>
+         <% else %>
+            <div>we have no user</div>
+         <% end %>
       </nav>
 
       <!-- display any controller-generated flash messages -->
