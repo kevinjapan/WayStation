@@ -9,6 +9,11 @@
                <span class="grey_text">project :  </span>
                <%= link_to project.title, project %>
             </span>
+            
+            <div>user: <%= task.users.distinct.pluck(:email_address) %></div>
+            <div>creator: <%= task.creators.distinct.pluck(:email_address) %></div>
+
+
          </li>
       <% end %>
    </ul>

@@ -39,6 +39,10 @@ class TodosController < ApplicationController
    def create
       @todo = Todo.new(todo_params)
       if @todo.save
+
+         # rolify
+         Current.user.add_role :creator, @todo
+
         redirect_to @todo
       else
         render :new, status: :unprocessable_entity

@@ -9,6 +9,12 @@
                <span class="grey_text">task :  </span>
                <%= link_to task.title, task %>
             </span>
+
+            <div>user: <%= todo.users.distinct.pluck(:email_address) %></div>
+            <div>creator: <%= todo.creators.distinct.pluck(:email_address) %></div>
+
+            
+
          </li>
       <% end %>
   </ul>

@@ -28,6 +28,10 @@ class ProgrammesController < ApplicationController
    def create
       @programme = Programme.new(programme_params)
       if @programme.save
+
+         # rolify
+         Current.user.add_role :creator, @programme
+
          # when redirect_to is given an Active Record object, Rails generates a path for that record's show action:
          redirect_to @programme
       else

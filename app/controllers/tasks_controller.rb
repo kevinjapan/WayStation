@@ -44,7 +44,11 @@ class TasksController < ApplicationController
       @task = Task.new(task_params)
 
       if @task.save
-        redirect_to @task
+
+         # rolify
+         Current.user.add_role :creator, @task
+        
+         redirect_to @task
       else
         render :new, status: :unprocessable_entity
       end

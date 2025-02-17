@@ -5,6 +5,11 @@ class Project < ApplicationRecord
 
    belongs_to :programme
    
+   # rolify
+   resourcify
+   has_many :users, through: :roles, class_name: 'User', source: :users
+   has_many :creators, -> { where(roles: {name: :creator}) }, through: :roles, class_name: 'User', source: :users
+
    has_many :comments, as: :commentable
    
    # ensure all Projects have a title

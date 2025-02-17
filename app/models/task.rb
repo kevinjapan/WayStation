@@ -4,6 +4,11 @@ class Task < ApplicationRecord
    has_many :todos, dependent: :destroy
    
    belongs_to :project
+   
+   # rolify
+   resourcify
+   has_many :users, through: :roles, class_name: 'User', source: :users
+   has_many :creators, -> { where(roles: {name: :creator}) }, through: :roles, class_name: 'User', source: :users
 
    has_many :comments, as: :commentable
 

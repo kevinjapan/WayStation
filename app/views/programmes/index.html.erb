@@ -24,6 +24,10 @@
                      <span><%=programme.tagline%></span>
                   <% end %>
                   <%= programme.created_at.strftime("%a %-d %b %Y %H:%M") %>
+                  
+                  <div>user: <%= programme.users.distinct.pluck(:email_address) %></div>
+                  <div>creator: <%= programme.creators.distinct.pluck(:email_address) %></div>
+
                </li>
             <% end %>
          <% end %>

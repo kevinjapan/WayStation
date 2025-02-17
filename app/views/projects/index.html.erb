@@ -8,6 +8,12 @@
             <span class="parent_token">
                <span class="grey_text">programme :  </span>
                <%= link_to programme.title, programme %>
+
+               
+               <div>user: <%= project.users.distinct.pluck(:email_address) %></div>
+               <div>creator: <%= project.creators.distinct.pluck(:email_address) %></div>
+
+
             </span>
          </li>
       <% end %>
