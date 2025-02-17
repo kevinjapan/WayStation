@@ -10,9 +10,18 @@
 export function enable_btn(btn_id) {
    const btn = document.getElementById(btn_id)
    if(btn) {
-      btn.classList.toggle('inactive_btn')
+      btn.classList.remove('inactive_btn')
    }
 }
+
+// fade_out
+export function fade_out(elem_id) {
+   const elem = document.getElementById(elem_id)
+   if(elem) {
+      elem.classList.toggle('fade_out')
+   }
+}
+
 
 export default function() {
    
